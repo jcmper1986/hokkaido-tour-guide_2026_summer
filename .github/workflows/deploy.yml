@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # 當推送到 main 分支時觸發此 workflow
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Replace API Key Placeholder
+        run: |
+          # 這個步驟會將您的環境變數值替換到 HTML 檔案中
+          # 請確保此處的 'YOUR_GEMINI_API_KEY_PLACEHOLDER' 與您 HTML 中使用的佔位符一致
+          # 以及 ${{ secrets.GEMINI_API_KEY }} 與您在 GitHub Secrets 中設定的名稱一致
+          sed -i "s|YOUR_GEMINI_API_KEY_PLACEHOLDER|\"${{ secrets.GEMINI_API_KEY }}\"|g" index.html
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # 確保環境變數在這裡可用
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ # 您的網頁檔案所在的目錄，通常是根目錄
+          # CNAME: your-custom-domain.com # 如果您有自訂網域，可以在此處設定
