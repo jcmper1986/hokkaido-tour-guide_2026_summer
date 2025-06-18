@@ -992,7 +992,13 @@
     </div>
 
     <script>
-        // JavaScript for accordion functionality
+        // Gemini API Key (Please replace with your actual API Key for deployment)
+        const GEMINI_API_KEY = "REPLACE_WITH_GEMINI_API_KEY"; // 這個佔位符是我們會在 Actions 中替換的目標
+        
+        // Google Drive base URL for your tickets/vouchers folder
+        const GOOGLE_DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing";
+
+        // Accordion functionality
         document.addEventListener('DOMContentLoaded', () => {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
             const subAccordionHeaders = document.querySelectorAll('.sub-accordion-header');
