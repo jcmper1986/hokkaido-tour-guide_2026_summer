@@ -307,7 +307,7 @@
                             <li><span class="list-item-icon">☀️</span> 防曬用品：夏季陽光強烈，即使多雲也可能有紫外線，墨鏡、帽子、防曬乳不可少。</li>
                             <li><span class="list-item-icon">🦟</span> 防蚊用品：在郊區或森林區域（如知床、屈斜路湖畔），蚊蟲可能較多，驅蚊液會是您的好幫手。</li>
                         </ul>
-                        <p class="text-guide">💡 導遊小知識：想像您是北海道天氣的時尚達人，一層一層穿脫自如！這樣無論在豔陽下還是微風中，都能保持舒適與風度！別忘了，北海道的自然美景會讓您忍不住多拍幾張，穿搭也要美美的喔！</p>
+                        <p class="text-guide">  導遊小知識：想像您是北海道天氣的時尚達人，一層一層穿脫自如！這樣無論在豔陽下還是微風中，都能保持舒適與風度！別忘了，北海道的自然美景會讓您忍不住多拍幾張，穿搭也要美美的喔！</p>
                     </div>
                 </div>
 
@@ -663,7 +663,7 @@
                         <div class="image-container">
                             <img src="https://visit-abashiri.jp/assets_c/2022/12/pixta_74552322_L-thumb-2012xauto-673.jpeg" alt="鄂霍次克流冰館內部展示">
                         </div>
-                        <p class="activity-line"><span class="activity-time">⏰ 08:30 AM：</span><span class="activity-details">在飯店享用悠閒早餐後，從知床第一飯店（宇登呂）出發。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">⏰ 08:30 AM：</span><span class="activity-details">在飯店享用悠閒早餐後，從知床第一飯店（宇登呂）出發。</span></p>
                         <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">08:30 AM - 09:40 AM：</span><span class="activity-details">駕車前往<span class="highlight">鄂霍次克流冰館</span>（約1小時10分鐘車程，Map Code: 304 693 421*55）。</span></p>
                         <p class="text-guide">💡 導遊小知識：鄂霍次克流冰館是一個展示流冰生態和文化的博物館。雖然7月沒有流冰，但您可以在零下15度的流冰體驗室中感受真實流冰的冰冷，並觀看流冰的介紹影片，了解流冰生態系。對於小朋友來說，體驗冰冷和看到可愛的流冰天使（Clione）會是一個難忘的體驗。</p>
                         <p class="activity-line"><span class="list-item-icon">🚶‍♀️</span><span class="activity-time">09:40 AM - 11:00 AM：</span><span class="activity-details">參觀流冰館（約1小時20分鐘）。</span></p>
@@ -1186,6 +1186,26 @@
             setupAIPromptSections();
         });
 
+        // NEW: Function to format AI response from Markdown to HTML
+        function formatAIResponse(text) {
+            // Replace bold Markdown (**text** or *text*) with <strong> HTML tags
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            text = text.replace(/\*(.*?)\*/g, '<strong>$1</strong>'); // Also handle single asterisks for bold
+
+            // Replace newlines with <br> for proper line breaks
+            text = text.replace(/\n/g, '<br>');
+
+            // Remove any leftover standalone asterisks if they are not part of bold (less likely after bold replacement, but good for robustness)
+            text = text.replace(/\*/g, ''); 
+            
+            // Further improve readability by adding some spacing around Emojis/Icons if they are stuck to text
+            text = text.replace(/([^\s])(✈️|🚗|🗺️|🌳|🍖|🐄|♨️|🌋|🏨|🌅|💧|🏞️|🛣️|💦|🛥️|🛍️|🎁|📦|🛂|🔑|🎫|📞|👚|👟|☔|☀️|🦟|🔌|⚡|📶|📱|🔋|🩹|🚑|👶|⏱️|🍭|💺|🏃‍♀️|👨‍👩‍👧‍👦|💳|🍦|⛽|🏡|🏢|🏬|⛩️|🐟|🍜|🥟|🦀|🦐|🦑|🍣|🍺|🎉|✨|🍻|🎆|🏮|🛶|🌃|💜|🌈|🌷|🚜|🏙️|🔔|🌸|🌾|🌊|🍂|❄️|🌨️|🌬️|☀️|🌫️|⛅|🌧️|💧)/g, '$1 $2');
+            text = text.replace(/(✈️|🚗|🗺️|🌳|🍖|🐄|♨️|🌋|🏨|🌅|💧|🏞️|🛣️|💦|🛥️|🛍️|🎁|📦|🛂|🔑|🎫|📞|👚|👟|☔|☀️|🦟|🔌|⚡|📶|📱|🔋|🩹|🚑|👶|⏱️|🍭|💺|🏃‍♀️|👨‍👩‍👧‍👦|💳|🍦|⛽|🏡|🏢|🏬|⛩️|🐟|🍜|🥟|🦀|🦐|🦑|🍣|🍺|🎉|✨|🍻|🎆|🏮|🛶|🌃|💜|🌈|🌷|🚜|🏙️|🔔|🌸|🌾|🌊|🍂|❄️|🌨️|🌬️|☀️|🌫️|⛅|🌧️|💧)([^\s])/g, '$1 $2');
+
+
+            return text;
+        }
+
 
         // Function to call AI Bot (Gemini API)
         async function callAIBot(sectionId, selectedPromptText) {
@@ -1204,8 +1224,8 @@
                 return;
             }
 
-            // Check if API key is the placeholder or empty after deployment
-            if (typeof GEMINI_API_KEY === 'undefined' || !GEMINI_API_KEY) { // Updated check
+            // Check if API key is defined and not empty
+            if (typeof GEMINI_API_KEY === 'undefined' || !GEMINI_API_KEY) { 
                 responseDiv.innerHTML = '<p>⚡️ AI 報馬仔正在充電中... 請先在 GitHub Secrets 中設定您的 Gemini API Key，並確保部署成功才能召喚它喔！</p>';
                 responseDiv.style.display = 'block';
                 return;
@@ -1217,7 +1237,7 @@
             try {
                 let chatHistory = [];
                 // Instruct the model to use specific formatting, humor, and details
-                const fullPrompt = `你是一個幽默、熱情且知識淵博的北海道旅遊AI報馬仔。請用中文繁體，以說故事的口吻，詳細回答以下關於北海道旅遊的問題，並在回答中適當使用Emoji或ICON（例如🏞️、🦀、🌸、🚗等）來取代純文字的項目符號，讓內容更生動有趣，並注意換行提升可讀性。請確保資訊的準確性：\n\n問題：${prompt}`;
+                const fullPrompt = `你是一個幽默、熱情且知識淵博的北海道旅遊AI報馬仔。請用中文繁體，以說故事的口吻，詳細回答以下關於北海道旅遊的問題，並在回答中適當使用Emoji或ICON（例如🏞️、🦀、🌸、🚗等）來取代純文字的項目符號，讓內容更生動有趣，並注意換行提升可讀性。請確保資訊的準準確性：\n\n問題：${prompt}`;
 
                 chatHistory.push({ role: "user", parts: [{ text: fullPrompt }] });
                 const payload = { contents: chatHistory };
@@ -1234,7 +1254,8 @@
                     result.candidates[0].content && result.candidates[0].content.parts &&
                     result.candidates[0].content.parts.length > 0) {
                     const text = result.candidates[0].content.parts[0].text;
-                    responseDiv.innerHTML = `<p>${text}</p>`;
+                    // Format the AI response before displaying
+                    responseDiv.innerHTML = `<p>${formatAIResponse(text)}</p>`;
                 } else {
                     responseDiv.innerHTML = '<p>哎呀，AI 報馬仔有點卡住了，暫時無法無法生成內容。請稍後再試喔！</p>';
                     console.error('Unexpected Gemini API response structure:', result);
@@ -1249,8 +1270,8 @@
         async function callAIBotForCloudSea(targetId, prompt) {
             const responseDiv = document.getElementById(`${targetId}-response`);
 
-            // Check if API key is the placeholder or empty after deployment
-            if (typeof GEMINI_API_KEY === 'undefined' || !GEMINI_API_KEY) { // Updated check
+            // Check if API key is defined and not empty
+            if (typeof GEMINI_API_KEY === 'undefined' || !GEMINI_API_KEY) { 
                 responseDiv.innerHTML = '<p>⚡️ AI 天氣報馬仔正在充電中... 請先在 GitHub Secrets 中設定您的 Gemini API Key，並確保部署成功才能召喚它喔！</p>';
                 responseDiv.style.display = 'block';
                 return;
@@ -1278,7 +1299,8 @@
                     result.candidates[0].content && result.candidates[0].content.parts &&
                     result.candidates[0].content.parts.length > 0) {
                     const text = result.candidates[0].content.parts[0].text;
-                    responseDiv.innerHTML = `<p>${text}</p>`;
+                    // Format the AI response before displaying
+                    responseDiv.innerHTML = `<p>${formatAIResponse(text)}</p>`;
                 } else {
                     responseDiv.innerHTML = '<p>哎呀，AI 天氣報馬仔有點卡住了，暫時無法無法生成內容。請稍後再試喔！</p>';
                     console.error('Unexpected Gemini API response structure:', result);
@@ -1291,3 +1313,4 @@
     </script>
 </body>
 </html>
+ 
