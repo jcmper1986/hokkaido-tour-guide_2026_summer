@@ -15,8 +15,9 @@ jobs:
 
       - name: Replace API Key Placeholder
         # 修正 sed 命令，確保它能正確替換不含雙引號的佔位符，並在替換後加上雙引號
+        # 使用一個更獨特的佔位符 '__GEMINI_API_KEY_PLACEHOLDER__', 並確保其被單引號包圍，以兼容 GitHub Actions 環境的 sed
         run: |
-          sed -i 's|YOUR_GEMINI_API_KEY_PLACEHOLDER|'\"${{ secrets.GEMINI_API_KEY }}\"'|g' index.html
+          sed -i "s|__GEMINI_API_KEY_PLACEHOLDER__|\"${{ secrets.GEMINI_API_KEY }}\"|g" index.html
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # 確保環境變數在這裡可用
 
