@@ -218,6 +218,40 @@
             word-break: break-word; /* Break long words if necessary */
             overflow-wrap: break-word; /* For older browsers */
         }
+
+        /* --- Mobile-specific Optimizations --- */
+        @media (max-width: 768px) { /* Adjust breakpoint as needed */
+            .activity-line {
+                flex-direction: column; /* Stack icon/time and details vertically */
+                align-items: flex-start; /* Align stacked items to the left */
+            }
+            .activity-time {
+                white-space: normal; /* Allow time to wrap if it's too long, though generally not needed for 24h format */
+                margin-bottom: 0.25rem; /* Small space below time */
+                width: 100%; /* Time takes full width */
+                text-align: left; /* Ensure time is left-aligned when stacked */
+            }
+            /* Styling for vertical time ranges */
+            .activity-time .time-range-vertical {
+                display: block; /* Each part of time range on new line */
+                line-height: 1.2;
+                white-space: nowrap; /* Keep each time part on its own line */
+                font-size: 0.9em; /* Slightly smaller font for stacked times */
+            }
+            .activity-details {
+                width: 100%; /* Details take full width */
+            }
+            /* Specific adjustment for nested bullet lists inside activity-details */
+            .activity-details .bullet-list {
+                width: auto; /* Allow auto width for nested lists inside activity-details */
+                margin-left: 0; /* Remove potential extra margin for nested lists */
+                padding-left: 0; /* Remove potential extra padding */
+            }
+            .bullet-list li {
+                 flex-wrap: nowrap; /* Keep icon and text on one line if possible */
+                 white-space: normal; /* Ensure text wraps within li */
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -230,8 +264,13 @@
         <!-- 行前準備章節 -->
         <div class="accordion-item rounded-xl">
             <div class="accordion-header rounded-t-xl" data-target="preparation">
+                <div class="road-info">
+                    <span>🛣️ 路況：順暢</span>
+                </div>
                 <span>🎒 行前準備：讓您的旅程萬無一失！</span>
-                <span>&#9660;</span>
+                <div class="weather-info">
+                    <span>☀️ 晴朗</span>
+                </div>
             </div>
             <div id="preparation" class="accordion-content bg-green-100">
                 <h3 class="text-xl font-semibold text-green-800 mb-4">萬事俱備，只欠出發！</h3>
@@ -282,7 +321,7 @@
                             <li><span class="list-item-icon">🔌</span> <span class="activity-details">行動電源與充電線：手機、相機、平板等多個電子設備，在戶外活動或長途車程中容易耗電。務必攜帶至少一個大容量行動電源，並備齊所有設備的充電線。</span></li>
                             <li><span class="list-item-icon">⚡</span> <span class="activity-details">轉接頭/變壓器：日本電壓100V，插座為兩孔扁平（A型），與台灣相容，但若攜帶三孔電器，則需轉接頭。請檢查您的電器是否支援100V電壓，大部分現代電器都兼容。</span></li>
                             <li>
-                                <span class="list-item-icon">📶</span> <span class="activity-details">Wi-Fi分享器或日本SIM卡：確保全程網路暢通至關重要。
+                                <span class="list-item-icon">📶</span> <span class="activity-details">Wi-Fi分享器或日本SIM卡：確保全程網路暢通至關重要。<br>
                                     <ul class="bullet-list ml-6">
                                         <li><span class="list-item-icon">📡</span> Wi-Fi分享器：適合多人共用，但需每天充電，並注意流量限制。</li>
                                         <li><span class="list-item-icon">📱</span> 日本SIM卡/eSIM：方便個人使用，直接替換手機SIM卡或掃描安裝，流量選擇彈性。</li>
@@ -342,7 +381,7 @@
                             <li><span class="list-item-icon">🏃‍♀️</span> 步調：優先確保充足的休息和玩樂時間。兒童通常受益於在公園或開放空間的專門玩樂時間，讓他們盡情奔跑、探索。</li>
                             <li><span class="list-item-icon">👨‍👩‍👧‍👦</span> 安全：在擁擠的節慶區域（如札幌夏日祭、小樽潮祭），務必時刻留意孩童，不要讓他們離開視線。在人多時，可考慮使用兒童牽繩或背帶，增加安全保障。</li>
                         </ul>
-                        <p class="text-guide">💡 導遊小知識：帶著小探險家出門，最重要的是他們的笑容！只要他們開心，大人的旅程也加倍精彩！適時的休息和「放電」時間，是保持家庭和諧的秘訣喔！</p>
+                        <p class="text-guide">  導遊小知識：帶著小探險家出門，最重要的是他們的笑容！只要他們開心，大人的旅程也加倍精彩！適時的休息和「放電」時間，是保持家庭和諧的秘訣喔！</p>
                     </div>
                 </div>
             </div>
@@ -529,10 +568,10 @@
                         <div class="image-container">
                             <img src="https://easthokkaido.com/eastwp/wp-content/uploads/pixta_33023190_L.jpg" alt="津別峠展望台的雲海日出景觀">
                         </div>
-                        <p class="activity-line"><span class="activity-time">⏰ 03:30 AM：</span><span class="activity-details">從屈斜路湖王子大飯店出發（Map Code: 927 186 630*00）。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">03:30 AM - 04:00 AM：</span><span class="activity-details">駕車前往<span class="highlight">津別峠展望台</span>（約30分鐘車程，Map Code: 927 131 526*74）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：津別峠展望台海拔947公尺，是觀賞屈斜路湖雲海的頂級地點之一，與美幌峠齊名，且距離屈斜路湖王子大飯店更近。7月是觀賞雲海的黃金時期。在日出時分（7月21日日出約4:14 AM）觀賞壯麗的雲海，您會看到無邊無際的雲海覆蓋著屈斜路湖，隨著太陽緩緩升起，雲層被染上神秘的色彩，形成一場由雲與光交織而成的視覺盛宴。清晨山頂氣溫較低，務必備足保暖衣物。</p>
-                        <p class="activity-line"><span class="list-item-icon">🍳</span><span class="activity-time">06:00 AM - 07:00 AM：</span><span class="activity-details">觀賞結束後，駕車返回**屈斜路湖王子大飯店**，享用飯店提供的豐盛早餐。結束早起的雲海行程後，能在飯店舒適地用餐，為接下來的行程補充體力，是非常棒的安排！</span></p>
+                        <p class="activity-line"><span class="activity-time">⏰ 03:30：</span><span class="activity-details">從屈斜路湖王子大飯店出發（Map Code: 927 186 630*00）。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">03:30 - 04:00：</span><span class="activity-details">駕車前往<span class="highlight">津別峠展望台</span>（約30分鐘車程，Map Code: 927 131 526*74）。</span></p>
+                        <p class="text-guide">💡 導遊小知識：津別峠展望台海拔947公尺，是觀賞屈斜路湖雲海的頂級地點之一，與美幌峠齊名，且距離屈斜路湖王子大飯店更近。7月是觀賞雲海的黃金時期。在日出時分（7月21日日出約4:14）觀賞壯麗的雲海，您會看到無邊無際的雲海覆蓋著屈斜路湖，隨著太陽緩緩升起，雲層被染上神秘的色彩，形成一場由雲與光交織而成的視覺盛宴。清晨山頂氣溫較低，務必備足保暖衣物。</p>
+                        <p class="activity-line"><span class="list-item-icon">🍳</span><span class="activity-time">06:00 - 07:00：</span><span class="activity-details">觀賞結束後，駕車返回**屈斜路湖王子大飯店**，享用飯店提供的豐盛早餐。結束早起的雲海行程後，能在飯店舒適地用餐，為接下來的行程補充體力，是非常棒的安排！</span></p>
                         <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Kussharo_Prince_Hotel_Breakfast.pdf (Google Drive)</a>
                     </div>
                 </div>
@@ -545,19 +584,19 @@
                         <div class="image-container">
                             <img src="https://img.cooljapan-videos.com/files/members/2jhfxzkk/background/11d4757e842cb9c7728b52fd73fea7110d6a6eb1.jpg" alt="摩周湖的清澈湖水與周圍山景">
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🗺️</span><span class="activity-time">08:00 AM：</span><span class="activity-details">從屈斜路湖王子大飯店出發，辦理退房手續。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">08:00 AM - 08:30 AM：</span><span class="activity-details">駕車前往<span class="highlight">摩周湖第一展望台</span>（約30分鐘車程，Map Code: 927 057 568*68）。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🏞️</span><span class="activity-time">08:30 AM - 09:30 AM：</span><span class="activity-details">觀賞摩周湖美景（約1小時）。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🗺️</span><span class="activity-time">08:00：</span><span class="activity-details">從屈斜路湖王子大飯店出發，辦理退房手續。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">08:00 - 08:30：</span><span class="activity-details">駕車前往<span class="highlight">摩周湖第一展望台</span>（約30分鐘車程，Map Code: 927 057 568*68）。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🏞️</span><span class="activity-time">08:30 - 09:30：</span><span class="activity-details">觀賞摩周湖美景（約1小時）。</span></p>
                         <p class="text-guide">💡 導遊小知識：摩周湖被譽為「摩周藍」，以其世界上數一數二的透明度而聞名，湖水呈現出令人驚嘆的深藍色調，彷彿一顆藍寶石鑲嵌在群山之中。摩周湖第一展望台24小時開放，讓您能在最佳光線下欣賞這片「神之湖」。即使沒有雲海，清晨的湖面也極為靜謐美麗，給人一種神秘而莊嚴的感覺。</p>
                         <div class="image-container">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStt5U41jDk2AkTFwdT9WsGXdNULlDQ11r6Kg&s" alt="北海道天堂之路筆直延伸的公路">
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🛣️</span><span class="activity-time">09:30 AM - 11:30 AM：</span><span class="activity-details">從摩周湖出發，前往知床宇登呂地區。這段車程約為2小時。途中，您將順路經過<span class="highlight">天堂之路</span>（位於網走附近，Map Code: 304 381 216*77）。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🛣️</span><span class="activity-time">09:30 - 11:30：</span><span class="activity-details">從摩周湖出發，前往知床宇登呂地區。這段車程約為2小時。途中，您將順路經過<span class="highlight">天堂之路</span>（位於網走附近，Map Code: 304 381 216*77）。</span></p>
                         <p class="text-guide">💡 導遊小知識：天堂之路因其筆直無盡的道路，彷彿直達天際而得名。這是一條長達28.1公里的直線道路，在視覺上給人一種衝向天邊的錯覺，是北海道自駕之旅的標誌性景觀之一。您可以將車停在路邊的安全區域，拍下令人驚嘆的照片，感受北海道的廣闊與壯麗。這是一次快速而令人印象深刻的駕車體驗。</p>
                         <div class="image-container">
                             <img src="https://www.nippon.com/hk/ncommon/contents/guide-to-japan/226874/226874.jpg" alt="知床雙美瀑布的壯觀水流">
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">💦</span><span class="activity-time">11:30 AM - 12:00 PM：</span><span class="activity-details">隨後，您將順路經過<span class="highlight">雙美瀑布 (Oshinkoshin Falls)</span> (Map Code: 797 561 247*06) 和<span class="highlight">Puyuni岬 (Puyuni Cape)</span> (Map Code: 797 561 411*44)，進行短暫停留。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">💦</span><span class="activity-time">11:30 - 12:00：</span><span class="activity-details">隨後，您將順路經過<span class="highlight">雙美瀑布 (Oshinkoshin Falls)</span> (Map Code: 797 561 247*06) 和<span class="highlight">Puyuni岬 (Puyuni Cape)</span> (Map Code: 797 561 411*44)，進行短暫停留。</span></p>
                         <p class="text-guide">💡 導遊小知識：雙美瀑布是知床地區最大的瀑布，高達70公尺，因水流在途中分為兩股而得名「雙美瀑布」，並入選「日本瀑布百選」。從觀景台可近距離感受瀑布的磅礴氣勢，並俯瞰鄂霍次克海的壯闊景色。Puyuni岬則是「知床八景」之一，提供鄂霍次克海和知床連峰的絕佳視野點，也是欣賞海上落日的理想地點。</p>
                     </div>
                 </div>
@@ -567,22 +606,22 @@
                         <span>&#9660;</span>
                     </div>
                     <div id="day3-activity3" class="sub-accordion-content">
-                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-time">12:00 PM - 01:00 PM：</span><span class="activity-details">在知床宇登呂地區享用午餐（Map Code: 797 571 700*88）。您可以選擇當地特色的海鮮丼或簡餐。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-time">12:00 - 13:00：</span><span class="activity-details">在知床宇登呂地區享用午餐（Map Code: 797 571 700*88）。您可以選擇當地特色的海鮮丼或簡餐。</span></p>
                         <div class="image-container">
                             <img src="https://imageproxy.pixnet.cc/imgproxy?url=https://pic.pimg.tw/paulchi543/1688501207-2530370003-g_l.jpg" alt="知床五湖高架木棧道上的遊客與湖景">
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🚶‍♀️</span><span class="activity-time">01:00 PM - 02:00 PM：</span><span class="activity-details">前往<span class="highlight">知床五湖（高架木棧道）</span>進行遊覽（約1小時，Map Code: 797 571 183*00）。**請注意：此遊覽時間為壓縮時間，以銜接觀光船。**</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🚶‍♀️</span><span class="activity-time">13:00 - 14:00：</span><span class="activity-details">前往<span class="highlight">知床五湖（高架木棧道）</span>進行遊覽（約1小時，Map Code: 797 571 183*00）。**請注意：此遊覽時間為壓縮時間，以銜接觀光船。**</span></p>
                         <p class="text-guide">💡 導遊小知識：知床五湖是聯合國教科文組織世界遺產知床半島的核心景點。高架木棧道是一條1.6公里的往返步道，設計為無障礙設施，非常適合輪椅和嬰兒車，對4歲的幼童來說是理想的選擇。它全年免費開放，並設有電子圍欄以保護遊客免受棕熊的影響，確保安全無憂的體驗。由於下午時間有限，建議您專注於高架木棧道，以便為後續的觀光船行程預留充足時間。知床世界遺產中心（Map Code: 797 571 777*60）位於附近，如果時間充裕，可以快速瀏覽，了解知床的自然歷史與生態。</p>
                         <div class="image-container">
                             <img src="https://img.cooljapan-videos.com/files/members/axu6qcug/background/f7ff740cb214f04ede3a97f03380511b3bc92e2b.jpg?202503311058" alt="宇登呂港的鯨豚觀察觀光船">
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🛥️</span><span class="activity-time">02:30 PM - 02:40 PM：</span><span class="activity-details">前往<span class="highlight">宇登呂（ウトロ）漁港</span>（Map Code: 797 571 700*88），準備搭乘**自然風景＋鯨豚觀察觀光船**。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">⏱️</span><span class="activity-time">02:40 PM - 04:55 PM：</span><span class="activity-details">搭乘觀光船（船程約2小時15分鐘）。請務必提前預約此船班，尤其在7月旺季。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🛥️</span><span class="activity-time">14:30 - 14:40：</span><span class="activity-details">前往<span class="highlight">宇登呂（ウトロ）漁港</span>（Map Code: 797 571 700*88），準備搭乘**自然風景＋鯨豚觀察觀光船**。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">⏱️</span><span class="activity-time">14:40 - 16:55：</span><span class="activity-details">搭乘觀光船（船程約2小時15分鐘）。請務必提前預約此船班，尤其在7月旺季。</span></p>
                         <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Shiretoko_Cruise_PM_Ticket.pdf (Google Drive)</a>
                         <p class="text-guide">💡 導遊小知識：從宇登呂港出發的觀光船，將帶您沿著知床半島崎嶇的海岸線航行，欣賞壯麗的海崖、瀑布，並有機會觀察到棲息在知床的野生棕熊、海鳥，甚至幸運的話，還能邂逅鯨魚和海豚。這是一次從海上欣賞世界遺產獨特風光的絕佳機會。</p>
 
                         <h4 class="font-semibold mb-2 mt-4">🏨 晚上：入住知床第一飯店</h4>
-                        <p class="activity-line"><span class="list-item-icon">😴</span><span class="activity-details">觀光船結束後（約16:55左右），前往已確認的住宿——<span class="highlight">知床第一飯店</span>（Map Code: 797 570 000*00）辦理入住。這家酒店以其舒適的設施和溫泉聞名，是結束一天充實行程的完美歸宿。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">😴</span><span class="activity-time">約 16:55：</span><span class="activity-details">觀光船結束後，前往已確認的住宿——<span class="highlight">知床第一飯店</span>（Map Code: 797 570 000*00）辦理入住。這家酒店以其舒適的設施和溫泉聞名，是結束一天充實行程的完美歸宿。</span></p>
                         <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Shiretoko_Daiichi_Hotel.pdf (Google Drive)</a>
                     </div>
                 </div>
@@ -931,7 +970,7 @@
                             <img src="https://travel.rakuten.co.jp/mytrip/sites/default/files/styles/image_detail/public/2021-08/%E4%B8%89%E8%A7%92%E5%B8%82%E5%A0%B4%E3%81%AE%E5%B8%9D%E7%8E%8B%E8%9F%B9.jpg" alt="小樽三角市場新鮮烹製的帝王蟹">
                         </div>
                         <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">在小樽享用一頓豐盛的<span class="highlight">海鮮美食饗宴</span>，特別是您期待的<span class="highlight">帝王蟹</span>。</span></p>
-                        <p class="text-guide">💡 導遊小知識：小樽的<span class="highlight">三角市場</span>（Map Code: 164 719 500*78）以其新鮮的海鮮和帝王蟹而受到高度推薦，價格通常比札幌更為優惠。</p>
+                        <p class="text-guide">💡 導遊小知識：小樽的<span class="highlight">三角市場</span>以其新鮮的海鮮和帝王蟹而受到高度推薦，價格通常比札幌更為優惠。</p>
                         <p class="activity-line"><span class="list-item-icon">🦀</span><span class="activity-details"><span class="font-bold">推薦餐廳：</span><span class="highlight">滝波食堂</span> 和<span class="highlight">武田鮮魚店</span> 是三角市場內最受歡迎且評價最高的餐廳。您可以親自挑選活體帝王蟹，並選擇水煮或燒烤方式烹調（水煮通常被推薦以保留螃蟹的天然甜味和水分）。這絕對是北海道之旅的一大亮點。建議提早抵達市場，以避開最擁擠的人潮並確保選到最新鮮的海鮮，享受親自挑選活體螃蟹並現場烹調的樂趣。</span></p>
                     </div>
                 </div>
@@ -999,7 +1038,7 @@
                         <div class="image-container">
                             <img src="https://img.ltn.com.tw/Upload/playing/page/2025/04/01/250401-31079-1-qT9Ty.jpg" alt="新千歲機場的航站樓與登機口">
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">約11:00 AM：</span><span class="activity-details">從Premier Hotel Tsubaki Sapporo出發，前往新千歲機場。從札幌到新千歲機場的車程約為50-70分鐘。</span></p>
+                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">約11:00：</span><span class="activity-details">從Premier Hotel Tsubaki Sapporo出發，前往新千歲機場。從札幌到新千歲機場的車程約為50-70分鐘。</span></p>
                         <p class="activity-line"><span class="list-item-icon">✈️</span><span class="activity-details">啟程： 抵達新千歲機場後，辦理行李托運和離境手續。**您的航班為長榮航空165班次，預計13:00從新千歲機場起飛。**帶著北海道之旅的美好回憶踏上歸途。希望您們在這片美麗的土地上留下了珍貴的家庭時光！</span></p>
                     </div>
                 </div>
@@ -1015,10 +1054,23 @@
 
     <script>
         // Gemini API Key (Please replace with your actual API Key for deployment)
-        const GEMINI_API_KEY = "AIzaSyDvRKwXjTaiwd4ic9Cae8-tbSMgPKLINmM"; // <--- IMPORTANT: Replace with your Gemini API Key when deploying!
+        const GEMINI_API_KEY = ""AIzaSyDvRKwXjTaiwd4ic9Cae8-tbSMgPKLINmM""; // <--- IMPORTANT: Replace with your Gemini API Key when deploying!
 
         // Google Drive base URL for your tickets/vouchers folder
         const GOOGLE_DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing";
+
+        // Function to format time for mobile
+        function formatTimeForMobile(timeString) {
+            if (!timeString || timeString.indexOf('-') === -1) {
+                // If it's a single time or not a range, return as is (e.g., "11:55 ETA", "早餐後")
+                return timeString;
+            }
+            const parts = timeString.split('-');
+            if (parts.length === 2) {
+                return `<span class="time-range-vertical">${parts[0].trim()}<br>|<br>${parts[1].trim()}</span>`;
+            }
+            return timeString; // Fallback
+        }
 
         // Accordion functionality
         document.addEventListener('DOMContentLoaded', () => {
@@ -1078,6 +1130,27 @@
                 });
             });
             
+            // Apply mobile time formatting on load and resize
+            function applyMobileTimeFormatting() {
+                document.querySelectorAll('.activity-time').forEach(timeSpan => {
+                    if (window.innerWidth <= 768) { // Check for mobile width
+                        const originalText = timeSpan.getAttribute('data-original-text') || timeSpan.textContent;
+                        timeSpan.setAttribute('data-original-text', originalText); // Store original text
+                        timeSpan.innerHTML = formatTimeForMobile(originalText);
+                    } else {
+                        const originalText = timeSpan.getAttribute('data-original-text');
+                        if (originalText) {
+                            timeSpan.textContent = originalText; // Revert to original on desktop
+                        }
+                    }
+                });
+            }
+
+            // Initial application
+            applyMobileTimeFormatting();
+            // Apply on resize
+            window.addEventListener('resize', applyMobileTimeFormatting);
+
             // Function to handle single option AI sections and set up event listeners
             function setupAIPromptSections() {
                 document.querySelectorAll('.ai-prompt-section').forEach(section => {
@@ -1133,7 +1206,7 @@
                 return;
             }
 
-            if (GEMINI_API_KEY === "AIzaSyDvRKwXjTaiwd4ic9Cae8-tbSMgPKLINmM" || !GEMINI_API_KEY) {
+            if (GEMINI_API_KEY === ""AIzaSyDvRKwXjTaiwd4ic9Cae8-tbSMgPKLINmM"" || !GEMINI_API_KEY) {
                 responseDiv.innerHTML = '<p>⚡️ AI 報馬仔正在充電中... 請先在程式碼中設定您的 Gemini API Key 才能召喚它喔！</p>';
                 responseDiv.style.display = 'block';
                 return;
@@ -1164,12 +1237,12 @@
                     const text = result.candidates[0].content.parts[0].text;
                     responseDiv.innerHTML = `<p>${text}</p>`;
                 } else {
-                    responseDiv.innerHTML = '<p>哎呀，AI 報馬仔有點卡住了，暫時無法生成內容。請稍後再試喔！</p>';
+                    responseDiv.innerHTML = '<p>哎呀，AI 報馬仔有點卡住了，暫時無法無法生成內容。請稍後再試喔！</p>';
                     console.error('Unexpected Gemini API response structure:', result);
                 }
             } catch (error) {
                 responseDiv.innerHTML = '<p>糟糕，AI 報馬仔迷路了！發生錯誤，無法連接至AI服務。請檢查網路或稍後再試喔！</p>';
-                    console.error('Error calling Gemini API:', error);
+                console.error('Error calling Gemini API:', error);
             }
         }
 
@@ -1177,7 +1250,7 @@
         async function callAIBotForCloudSea(targetId, prompt) {
             const responseDiv = document.getElementById(`${targetId}-response`);
 
-            if (GEMINI_API_KEY === "AIzaSyDvRKwXjTaiwd4ic9Cae8-tbSMgPKLINmM" || !GEMINI_API_KEY) {
+            if (GEMINI_API_KEY === ""AIzaSyDvRKwXjTaiwd4ic9Cae8-tbSMgPKLINmM"" || !GEMINI_API_KEY) {
                 responseDiv.innerHTML = '<p>⚡️ AI 天氣報馬仔正在充電中... 請先在程式碼中設定您的 Gemini API Key 才能召喚它喔！</p>';
                 responseDiv.style.display = 'block';
                 return;
@@ -1207,7 +1280,7 @@
                     const text = result.candidates[0].content.parts[0].text;
                     responseDiv.innerHTML = `<p>${text}</p>`;
                 } else {
-                    responseDiv.innerHTML = '<p>哎呀，AI 天氣報馬仔有點卡住了，暫時無法生成內容。請稍後再試喔！</p>';
+                    responseDiv.innerHTML = '<p>哎呀，AI 天氣報馬仔有點卡住了，暫時無法無法生成內容。請稍後再試喔！</p>';
                     console.error('Unexpected Gemini API response structure:', result);
                 }
             } catch (error) {
@@ -1218,3 +1291,4 @@
     </script>
 </body>
 </html>
+ 
