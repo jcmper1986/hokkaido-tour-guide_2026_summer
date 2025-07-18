@@ -8,9 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* 京都風格用色與簡潔設計 */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7fafc; /* Light gray background */
+            background-color: #FBFBFB; /* 非常淺的米白色，柔和 */
         }
         .container {
             max-width: 960px;
@@ -18,32 +19,33 @@
             padding: 1rem;
         }
         .intro-section {
-            background-color: #d4edda; /* Light green for intro */
+            background-color: #E6F0E6; /* 柔和的淺綠色，像日式庭園 */
             padding: 2rem;
             border-radius: 0.75rem;
             margin-bottom: 2rem;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 更柔和的陰影 */
         }
         .intro-section h1 {
-            color: #155724; /* Darker green for intro heading */
+            color: #315c55; /* 深森林綠，穩重 */
             font-size: 2.25rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
         .intro-section p {
-            color: #155724;
+            color: #4A5568; /* 深灰藍，內斂 */
             font-size: 1.125rem;
             line-height: 1.6;
         }
         .accordion-item {
-            background-color: #ffffff;
+            background-color: #FFFFFF;
             border-radius: 0.75rem; /* Rounded corners */
             margin-bottom: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* 稍明顯的陰影 */
             overflow: hidden;
         }
         .accordion-header {
-            background-color: #4c51bf; /* Indigo for headers */
+            background-color: #315c55; /* 深森林綠，主色調 */
             color: white;
             padding: 1rem 1.5rem;
             cursor: pointer;
@@ -52,24 +54,25 @@
             align-items: center;
             font-weight: 600;
             font-size: 1.125rem; /* Large text for headers */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
         .accordion-header:hover {
-            background-color: #434190; /* Darker indigo on hover */
+            background-color: #2a4e46; /* 更深的森林綠 */
         }
         .accordion-content {
             padding: 1rem 1.5rem;
             display: none; /* Hidden by default */
-            border-top: 1px solid #ebf4f5; /* Light border for content */
+            border-top: 1px solid #E0E0E0; /* 淺灰色邊界 */
         }
         .sub-accordion-item {
             margin-top: 1rem;
-            background-color: #e2e8f0; /* Lighter gray for sub-items */
+            background-color: #F8F8F8; /* 非常淺的灰色 */
             border-radius: 0.5rem;
             overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* 更輕的陰影 */
         }
         .sub-accordion-header {
-            background-color: #667eea; /* Lighter indigo for sub-headers */
+            background-color: #739072; /* 柔和的綠灰色 */
             color: white;
             padding: 0.75rem 1rem;
             cursor: pointer;
@@ -80,13 +83,45 @@
             font-size: 1rem;
         }
         .sub-accordion-header:hover {
-            background-color: #5a67d8; /* Darker sub-indigo on hover */
+            background-color: #607a5e; /* 更深的柔和綠灰色 */
         }
         .sub-accordion-content {
             padding: 1rem;
             display: none;
-            border-top: 1px solid #cbd5e0;
-            background-color: #f0f4f8; /* Even lighter for sub-content */
+            border-top: 1px solid #D0D0D0; /* 較深的淺灰色邊界 */
+            background-color: #FFFFFF; /* 白色內容區 */
+        }
+        /* 第三層 Accordion - 簡潔京都風 */
+        .mini-accordion-item {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #E0E0E0; /* 細邊框 */
+            border-radius: 0.375rem; /* 較小的圓角 */
+            overflow: hidden;
+            background-color: #FFFFFF; /* 內層白色 */
+        }
+        .mini-accordion-header {
+            background-color: #F8F8F8; /* 淺灰色背景 */
+            color: #4A5568; /* 深灰藍文字 */
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500; /* 較輕的字重 */
+            font-size: 0.95rem;
+            border-bottom: 1px solid #E0E0E0; /* 細邊框 */
+        }
+        .mini-accordion-header:hover {
+            background-color: #EFEFEF; /* 稍深的淺灰色 */
+        }
+        .mini-accordion-content {
+            padding: 0.75rem 1rem;
+            display: none;
+            background-color: #FFFFFF; /* 白色內容區 */
+            font-size: 0.9rem;
+            color: #555555;
+            border-top: none; /* 移除頂部邊界 */
         }
         .text-guide {
             margin-top: 0.5rem;
@@ -134,11 +169,12 @@
         .llm-response {
             margin-top: 1rem;
             padding: 1rem;
-            background-color: #e0f2fe; /* Light blue for LLM responses */
-            border-left: 4px solid #38bdf8;
+            background-color: #F0F8FF; /* Alice Blue */
+            border-left: 4px solid #A0D2EB; /* 淺藍色邊界 */
             border-radius: 0.5rem;
             font-style: italic;
             color: #0c4a6e;
+            line-height: 1.6; /* 增加行高以提高可讀性 */
         }
         .loading-indicator {
             margin-top: 1rem;
@@ -218,6 +254,13 @@
             word-break: break-word; /* Break long words if necessary */
             overflow-wrap: break-word; /* For older browsers */
         }
+        /* Style for the time information in the main accordion header */
+        .header-time-info {
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-left: 1rem;
+            white-space: nowrap; /* Prevent wrapping */
+        }
 
         /* --- Mobile-specific Optimizations --- */
         @media (max-width: 768px) { /* Adjust breakpoint as needed */
@@ -251,6 +294,39 @@
                  flex-wrap: nowrap; /* Keep icon and text on one line if possible */
                  white-space: normal; /* Ensure text wraps within li */
             }
+            .header-time-info {
+                display: block; /* Stack time info on mobile */
+                margin-left: 0;
+                margin-top: 0.25rem;
+            }
+
+            /* Mobile-specific changes for accordion-header content */
+            .accordion-header .road-info {
+                display: none; /* Hide road info on mobile in the header */
+            }
+
+            .accordion-header .weather-info {
+                position: absolute; /* Position absolutely */
+                right: 1rem; /* Align to the right */
+                top: 50%; /* Center vertically */
+                transform: translateY(-50%); /* Adjust for vertical centering */
+                margin-right: 0; /* Remove extra margin */
+            }
+
+            .accordion-header .main-title {
+                flex-grow: 1; /* Allow title to take up space */
+                text-align: left; /* Align title to left */
+                padding-right: 3rem; /* Add padding to prevent overlap with weather icon */
+            }
+
+            .accordion-header .accordion-icon {
+                margin-left: auto; /* Push icon to the right */
+            }
+
+            /* Remove mobile-header-info from accordion-content */
+            .accordion-content .mobile-header-info {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -261,795 +337,1008 @@
             <p class="text-lg">準備好了嗎？這份專屬導遊將帶您穿越北國的壯麗山川、繽紛花海與熱鬧節慶，為您打造一趟難忘的九天八夜夢幻旅程。點擊下方每一天的標題，展開您的精彩探索吧！</p>
         </div>
 
-        <!-- 行前準備章節 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="preparation">
-                <div class="road-info">
-                    <span>🛣️ 路況：順暢</span>
+
+        <!-- 行程摺疊區塊 -->
+        <section class="mt-8">
+            <!-- 行前準備章節 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="preparation">
+                    <div class="road-info">
+                        <span>🛣️ 路況：順暢</span>
+                    </div>
+                    <span class="main-title text-center flex-grow">🎒 行前準備：讓您的旅程萬無一失！</span>
+                    <div class="weather-info">
+                        <span>☀️ 晴朗</span>
+                    </div>
                 </div>
-                <span>🎒 行前準備：讓您的旅程萬無一失！</span>
-                <div class="weather-info">
-                    <span>☀️ 晴朗</span>
+                <div id="preparation" class="accordion-content bg-green-100">
+                    <h3 class="text-xl font-semibold text-green-800 mb-4">萬事俱備，只欠出發！</h3>
+                    <p class="text-green-700 mb-4">親愛的旅人，一趟完美的旅程始於周全的準備。以下是一些特別為您的北海道家庭奇遇精選的行前小貼士，確保您在北國大地玩得開心又舒適！</p>
+                    
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="preparation-docs">
+                            <span>📄 文件與票券整理：萬萬不可遺漏！</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="preparation-docs" class="sub-accordion-content">
+                            <ul class="bullet-list text-gray-700">
+                                <li><span class="list-item-icon">🛂</span> 護照與簽證：務必確認效期在預定回國日期後至少六個月。</li>
+                                <li><span class="list-item-icon">✈️</span> 機票與飯店預訂：列印出來或儲存電子檔，並備份至雲端（如您的 Google Drive）。</li>
+                                <li><span class="list-item-icon">🔑</span> 租車預訂與國際駕照：確保國際駕照在有效期限內，並攜帶台灣駕照正本。</li>
+                                <li><span class="list-item-icon">🎫</span> 各項活動電子票券：如 Kamuy Lumina、觀光船票等，統一儲存在手機或平板，並準備備份。</li>
+                                <li><span class="list-item-icon">📞</span> 重要聯絡資訊：飯店、租車公司、緊急聯絡人電話。</li>
+                            </ul>
+                            <p class="text-guide">💡 導遊小知識：將所有重要文件的電子檔儲存在雲端資料夾中，並將閱讀權限分享給同行人員，這樣即使手機遺失，也能隨時存取。就像哆啦A夢的百寶袋一樣，有備無患！</p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 點此前往您的電子票券資料夾 (Google Drive)</a>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header" data-target="preparation-clothing">
+                            <span>👕 衣物準備：聰明穿搭，四季皆宜！</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="preparation-clothing" class="sub-accordion-content">
+                            <ul class="bullet-list text-gray-700">
+                                <li><span class="list-item-icon">👚</span> 多層次穿搭：7月北海道白天溫暖舒適（約20-25°C），但早晚溫差大，尤其在山區（如津別峠、層雲峽、黑岳）和沿海（知床、小樽）會較涼（可能降至10-15°C）。建議準備短袖T恤、薄長袖、輕便外套（防風防雨型尤佳）、薄羽絨或刷毛外套。洋蔥式穿搭讓您輕鬆應對氣溫變化！</li>
+                                <li><span class="list-item-icon">👟</span> 舒適步行鞋：行程中包含許多步行遊覽（如花田、森林步道），請選擇透氣、防滑且適合長時間行走的鞋子。戶外活動多，請避免新鞋或不合腳的鞋子，以免影響舒適度。</li>
+                                <li><span class="list-item-icon">☔</span> 輕便雨具：北海道夏季偶有陣雨，輕便的摺疊傘或薄雨衣是必備品，特別是參加戶外活動時（例如 Kamuy Lumina 活動禁止撐傘）。</li>
+                                <li><span class="list-item-icon">☀️</span> 防曬用品：夏季陽光強烈，即使多雲也可能有紫外線，墨鏡、帽子、防曬乳不可少。</li>
+                                <li><span class="list-item-icon">🦟</span> 防蚊用品：在郊區或森林區域（如知床、屈斜路湖畔），蚊蟲可能較多，驅蚊液會是您的好幫手。</li>
+                            </ul>
+                            <p class="text-guide">💡 導遊小知識：想像您是北海道天氣的時尚達人，一層一層穿脫自如！這樣無論在豔陽下還是微風中，都能保持舒適與風度！別忘了，北海道的自然美景會讓您忍不住多拍幾張，穿搭也要美美的喔！</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header" data-target="preparation-tech">
+                            <span>🔋 電力與通訊：電量滿格，訊號滿分！</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="preparation-tech" class="sub-accordion-content">
+                            <ul class="bullet-list text-gray-700">
+                                <li><span class="list-item-icon">🔌</span> <span class="activity-details">行動電源與充電線：手機、相機、平板等多個電子設備，在戶外活動或長途車程中容易耗電。務必攜帶至少一個大容量行動電源，並備齊所有設備的充電線。</span></li>
+                                <li><span class="list-item-icon">⚡</span> <span class="activity-details">轉接頭/變壓器：日本電壓100V，插座為兩孔扁平（A型），與台灣相容，但若攜帶三孔電器，則需轉接頭。請檢查您的電器是否支援100V電壓，大部分現代電器都兼容。</span></li>
+                                <li>
+                                    <span class="list-item-icon">📶</span> <span class="activity-details">Wi-Fi分享器或日本SIM卡：確保全程網路暢通至關重要。<br>
+                                        <ul class="bullet-list ml-6">
+                                            <li><span class="list-item-icon">📡</span> Wi-Fi分享器：適合多人共用，但需每天充電，並注意流量限制。</li>
+                                            <li><span class="list-item-icon">📱</span> 日本SIM卡/eSIM：方便個人使用，直接替換手機SIM卡或掃描安裝，流量選擇彈性。</li>
+                                        </ul>
+                                        **電信業者選擇小貼士：** 在北海道，主流電信業者如 Docomo, Softbank, au 的覆蓋率通常都不錯，但在偏遠山區或世界遺產地區（如知床、大雪山深處），訊號可能會較弱。一般而言，Docomo 被認為在偏遠地區的覆蓋率相對較好，但主要城市區域差異不大。建議選擇訊號穩定、評價良好的主流業者產品。
+                                    </span>
+                                </li>
+                                <li><span class="list-item-icon">🔋</span> <span class="activity-details">電池保暖：在清晨觀賞雲海或夜晚戶外活動時，氣溫較低會導致電子設備（尤其是手機和相機）的電池快速消耗。您可以將手機放在外套內層的口袋，或使用保暖套，以延長電池壽命。</span></li>
+                            </ul>
+                            <p class="text-guide">💡 導遊小知識：別讓手機沒電壞了興致！北海道的美景多到爆，記得隨時讓您的設備「能量滿滿」，才能把每一個壯麗瞬間都記錄下來，分享給親朋好友！</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="preparation-health">
+                            <span>💊 藥品與個人用品：健康第一，享受加倍！</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="preparation-health" class="sub-accordion-content">
+                            <ul class="bullet-list text-gray-700">
+                                <li><span class="list-item-icon">🩹</span> 個人常備藥品：感冒藥、腸胃藥、暈車藥（長途自駕和觀光船可能需要）、過敏藥等。特別是長途車程，暈車藥對小朋友或易暈車的大人可能很重要。</li>
+                                <li><span class="list-item-icon">🚑</span> 簡易急救包：創可貼、消毒棉片等以防萬一。</li>
+                                <li><span class="list-item-icon"> 👦</span> 兒童專用藥品：務必攜帶兒童退燒藥、感冒藥及過敏藥等，並隨身攜帶。</li>
+                                <li><span class="list-item-icon">🧴</span> 個人洗漱用品：部分飯店可能不提供，或您有個人偏好。環保意識抬頭，自備牙刷牙膏也是個好習慣。</li>
+                            </ul>
+                            <p class="text-guide">💡 導遊小知識：健康是革命的本錢！準備好個人所需，才能在旅途中無憂無慮地探索每一個角落！北海道的藥妝店雖然很多，但還是先備好常用藥，以備不時之需喔！</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="preparation-car-safety">
+                            <span>🚗 自駕安全與便利：路況掌握，安心暢遊！</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="preparation-car-safety" class="sub-accordion-content">
+                            <ul class="bullet-list text-gray-700">
+                                <li><span class="list-item-icon">💳</span> ETC卡：租車時務必同時租用ETC（電子收費）卡。這能讓高速公路收費站通行更順暢，避免排隊，並可能享有折扣，節省時間和麻煩。</li>
+                                <li><span class="list-item-icon">🗺️</span> GPS與Map Code：北海道幅員遼闊，GPS導航至關重要。除了車載GPS，建議下載離線地圖App（如Google Maps的離線地圖功能），並準備好各景點的Map Code。Map Code在日本非常精確，能幫助您準確導航至景點入口或停車場。</li>
+                                <li><span class="list-item-icon">🛣️</span> 路況掌握：北海道夏季駕駛通常很愉快，路況良好。然而，請注意某些景觀道路（例如大雪富良野景觀道的部分路段）可能會有蜿蜒、限速或因施工而臨時管制的情況。務必謹慎駕駛並遵守當地速限。</li>
+                                <li><span class="list-item-icon">🍦</span> 休息站（道の駅）：北海道有許多「道の駅」（公路休息站），不僅是休息、使用乾淨洗手間的好地方，更是購買當地新鮮農產品、特色小吃和紀念品的絕佳地點。善加利用這些設施，特別是帶著孩子旅行時，可以讓長途駕駛變得更有趣。</li>
+                                <li><span class="list-item-icon">⛽</span> 加滿油：在進入郊區或山區前，務必將油箱加滿。北海道有些路段加油站分佈較稀疏。</li>
+                            </ul>
+                            <p class="text-guide">💡 導遊小知識：在北海道自駕，就像是擁有了專屬的移動城堡！但別忘了，城堡的運作需要燃料和地圖！提前規劃好路線，享受沿途的美景，讓駕駛也成為旅程的一部分！</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="preparation-child">
+                            <span>👶 兒童旅行管理：讓小寶貝玩得盡興！</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="preparation-child" class="sub-accordion-content">
+                            <ul class="bullet-list text-gray-700">
+                                <li><span class="list-item-icon">⏱️</span> 彈性是關鍵：不要過度安排行程。4歲幼童的精力有限，容易疲憊或對某些活動失去興趣。根據孩子的精力水平和興趣，隨時準備調整計畫。輕鬆的行程安排能提供必要的彈性。</li>
+                                <li><span class="list-item-icon">🍭</span> 零食與娛樂：隨時準備充足的零食、飲料和小型、引人入勝的玩具或活動，以應對車程和用餐等待時間。這能有效轉移孩子的注意力，減少不耐煩。</li>
+                                <li><span class="list-item-icon">💺</span> 兒童安全座椅：租車時務必預訂並確認安裝兒童安全座椅，這是日本法律規定，也是確保孩子安全的重要保障。</li>
+                                <li><span class="list-item-icon">🏃‍♀️</span> 步調：優先確保充足的休息和玩樂時間。兒童通常受益於在公園或開放空間的專門玩樂時間，讓他們盡情奔跑、探索。</li>
+                                <li><span class="list-item-icon">👨‍👩‍👧‍👦</span> 安全：在擁擠的節慶區域（如札幌夏日祭、小樽潮祭），務必時刻留意孩童，不要讓他們離開視線。在人多時，可考慮使用兒童牽繩或背帶，增加安全保障。</li>
+                            </ul>
+                            <p class="text-guide">  導遊小知識：帶著小探險家出門，最重要的是他們的笑容！只要他們開心，大人的旅程也加倍精彩！適時的休息和「放電」時間，是保持家庭和諧的秘訣喔！</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="preparation" class="accordion-content bg-green-100">
-                <h3 class="text-xl font-semibold text-green-800 mb-4">萬事俱備，只欠出發！</h3>
-                <p class="text-green-700 mb-4">親愛的旅人，一趟完美的旅程始於周全的準備。以下是一些特別為您的北海道家庭奇遇精選的行前小貼士，確保您在北國大地玩得開心又舒適！</p>
-                
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="preparation-docs">
-                        <span>📄 文件與票券整理：萬萬不可遺漏！</span>
-                        <span>&#9660;</span>
+
+            <!-- Day 1 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day1">
+                    <div class="road-info">
+                        <span>🛣️ 路況：順暢</span>
+                        <span class="header-time-info" data-time-type="checkout">退房：N/A</span>
+                        <span class="header-time-info" data-time-type="departure">出發：N/A</span>
                     </div>
-                    <div id="preparation-docs" class="sub-accordion-content">
-                        <ul class="bullet-list text-gray-700">
-                            <li><span class="list-item-icon">🛂</span> 護照與簽證：務必確認效期在預定回國日期後至少六個月。</li>
-                            <li><span class="list-item-icon">✈️</span> 機票與飯店預訂：列印出來或儲存電子檔，並備份至雲端（如您的 Google Drive）。</li>
-                            <li><span class="list-item-icon">🔑</span> 租車預訂與國際駕照：確保國際駕照在有效期限內，並攜帶台灣駕照正本。</li>
-                            <li><span class="list-item-icon">🎫</span> 各項活動電子票券：如 Kamuy Lumina、觀光船票等，統一儲存在手機或平板，並準備備份。</li>
-                            <li><span class="list-item-icon">📞</span> 重要聯絡資訊：飯店、租車公司、緊急聯絡人電話。</li>
-                        </ul>
-                        <p class="text-guide">💡 導遊小知識：將所有重要文件的電子檔儲存在雲端資料夾中，並將閱讀權限分享給同行人員，這樣即使手機遺失，也能隨時存取。就像哆啦A夢的百寶袋一樣，有備無患！</p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 點此前往您的電子票券資料夾 (Google Drive)</a>
+                    <span class="main-title">Day 1 (7月19日 | 週六) 抵達與輕鬆啟程</span>
+                    <div class="weather-info">
+                        <span>☀️ 晴朗</span>
                     </div>
                 </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="preparation-clothing">
-                        <span>👕 衣物準備：聰明穿搭，四季皆宜！</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="preparation-clothing" class="sub-accordion-content">
-                        <ul class="bullet-list text-gray-700">
-                            <li><span class="list-item-icon">👚</span> 多層次穿搭：7月北海道白天溫暖舒適（約20-25°C），但早晚溫差大，尤其在山區（如津別峠、層雲峽、黑岳）和沿海（知床、小樽）會較涼（可能降至10-15°C）。建議準備短袖T恤、薄長袖、輕便外套（防風防雨型尤佳）、薄羽絨或刷毛外套。洋蔥式穿搭讓您輕鬆應對氣溫變化！</li>
-                            <li><span class="list-item-icon">👟</span> 舒適步行鞋：行程中包含許多步行遊覽（如花田、森林步道），請選擇透氣、防滑且適合長時間行走的鞋子。戶外活動多，請避免新鞋或不合腳的鞋子，以免影響舒適度。</li>
-                            <li><span class="list-item-icon">☔</span> 輕便雨具：北海道夏季偶有陣雨，輕便的摺疊傘或薄雨衣是必備品，特別是參加戶外活動時（例如 Kamuy Lumina 活動禁止撐傘）。</li>
-                            <li><span class="list-item-icon">☀️</span> 防曬用品：夏季陽光強烈，即使多雲也可能有紫外線，墨鏡、帽子、防曬乳不可少。</li>
-                            <li><span class="list-item-icon">🦟</span> 防蚊用品：在郊區或森林區域（如知床、屈斜路湖畔），蚊蟲可能較多，驅蚊液會是您的好幫手。</li>
-                        </ul>
-                        <p class="text-guide">  導遊小知識：想像您是北海道天氣的時尚達人，一層一層穿脫自如！這樣無論在豔陽下還是微風中，都能保持舒適與風度！別忘了，北海道的自然美景會讓您忍不住多拍幾張，穿搭也要美美的喔！</p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="preparation-tech">
-                        <span>🔋 電力與通訊：電量滿格，訊號滿分！</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="preparation-tech" class="sub-accordion-content">
-                        <ul class="bullet-list text-gray-700">
-                            <li><span class="list-item-icon">🔌</span> <span class="activity-details">行動電源與充電線：手機、相機、平板等多個電子設備，在戶外活動或長途車程中容易耗電。務必攜帶至少一個大容量行動電源，並備齊所有設備的充電線。</span></li>
-                            <li><span class="list-item-icon">⚡</span> <span class="activity-details">轉接頭/變壓器：日本電壓100V，插座為兩孔扁平（A型），與台灣相容，但若攜帶三孔電器，則需轉接頭。請檢查您的電器是否支援100V電壓，大部分現代電器都兼容。</span></li>
-                            <li>
-                                <span class="list-item-icon">📶</span> <span class="activity-details">Wi-Fi分享器或日本SIM卡：確保全程網路暢通至關重要。<br>
-                                    <ul class="bullet-list ml-6">
-                                        <li><span class="list-item-icon">📡</span> Wi-Fi分享器：適合多人共用，但需每天充電，並注意流量限制。</li>
-                                        <li><span class="list-item-icon">📱</span> 日本SIM卡/eSIM：方便個人使用，直接替換手機SIM卡或掃描安裝，流量選擇彈性。</li>
+                <div id="day1" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day1-activity1">
+                            <span>✈️ 上午/下午：抵達新千歲機場 (CTS) 與租車前往帶廣 (11:55 ETA)</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day1-activity1" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://imageproxy.pixnet.cc/imgproxy?url=https://pic.pimg.tw/omelettejando/1533318390-1857703229_n.jpg" alt="新千歲機場內部照片">
+                            </div>
+                            <p class="activity-line"><span class="activity-time">✈️ 11:55 ETA：</span><span class="activity-details">您的長榮航空 BR166 班機預計於上午11:55抵達新千歲機場。<br>下了飛機，您會感受到北海道清新的空氣，這趟奇遇就此拉開序幕！</span></p>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">抵達後，請前往租車櫃檯領取預訂的車輛。<br>考慮到您有四位成人和兩位兒童，以及隨行的行李，我們強烈建議選擇一輛寬敞舒適的休旅車或大型SUV，例如Toyota Alphard或Honda Stepwgn等，確保所有成員都能在旅途中享受寬敞的乘坐空間，並有充足的儲物容量。</span></p>
+                            <p class="text-guide">💡 導遊小知識：提早1.5小時（相較於下午的航班）抵達，意味著您們有更從容的時間辦理入境、領取行李和進行租車手續，避免了剛下飛機的慌亂。這對於有4歲幼童的家庭來說，能大大減輕首日的壓力，讓旅程有個平靜舒適的開始。</p>
+                            <p class="activity-line"><span class="activity-time">🗺️ 13:25-13:55：</span><span class="activity-details">辦理完租車手續後（預計約1.5-2小時，Times Car Rental 櫃檯營業至19:00，Map Code: 161 334 336*87），您們就可以從機場出發，正式展開北海道的自駕旅程，前往廣袤十勝平原的中心城市——帶廣。沿途您會逐漸感受到北海道特有的田園風光，綠意盎然，令人心曠神怡。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details"><strong>午餐：</strong> 牛舌 名代赤兵衛：地址：北海道千歳市末広3-1-2 (Map Code: 113 889 243*14)。從千歲車站東口步行約6分鐘。營業時間：11:00-15:00 (L.O. 14:30)。推薦：72小時熟成備長炭炭火燒牛舌。預算約2,000日圓。從新千歲機場開車約10-15分鐘。</span></p>
+                            <!-- Day 1 上午/下午 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day1-shopping-morning">
+                                    <span>🛍️ 購物推薦</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day1-shopping-morning" class="mini-accordion-content">
+                                    <p><strong>新千歲機場伴手禮：</strong> 機場內有許多商店，提供北海道特色伴手禮，如白色戀人、Royce'巧克力等。是抵達後或離開前採購的好地方。</p>
+                                    <p><strong>推薦品牌：</strong></p>
+                                    <ul class="bullet-list ml-4">
+                                        <li><strong>六花亭：</strong> 招牌奶油夾心餅乾、草莓夾心巧克力。</li>
+                                        <li><strong>Royce'：</strong> 生巧克力（牛奶、抹茶、威士忌等多種口味）、巧克力洋芋片。</li>
+                                        <li><strong>白色戀人：</strong> 經典薄脆貓舌餅乾。</li>
+                                        <li><strong>Calbee 薯條三兄弟：</strong> 外酥內軟、馬鈴薯風味濃郁。</li>
+                                        <li><strong>北菓樓：：</strong> 妖精之森年輪蛋糕、開拓小米菓（多種口味）。</li>
+                                        <li><strong>LeTAO：：</strong> 雙層起司蛋糕（需冷藏，建議機場購買並用保冷袋）。</li>
+                                        <li><strong>柳月：</strong> 三方六（年輪蛋糕）。</li>
+                                        <li><strong>花畑牧場生牛奶糖：：</strong> 純手工製作，入口即化。</li>
+                                        <li><strong>北海道限定雷神巧克力：</strong> 白色雷神、哈密瓜雷神。</li>
                                     </ul>
-                                    **電信業者選擇小貼士：** 在北海道，主流電信業者如 Docomo, Softbank, au 的覆蓋率通常都不錯，但在偏遠山區或世界遺產地區（如知床、大雪山深處），訊號可能會較弱。一般而言，Docomo 被認為在偏遠地區的覆蓋率相對較好，但主要城市區域差異不大。建議選擇訊號穩定、評價良好的主流業者產品。
-                                </span>
-                            </li>
-                            <li><span class="list-item-icon">🔋</span> <span class="activity-details">電池保暖：在清晨觀賞雲海或夜晚戶外活動時，氣溫較低會導致電子設備（尤其是手機和相機）的電池快速消耗。您可以將手機放在外套內層的口袋，或使用保暖套，以延長電池壽命。</span></li>
-                        </ul>
-                        <p class="text-guide">💡 導遊小知識：別讓手機沒電壞了興致！北海道的美景多到爆，記得隨時讓您的設備「能量滿滿」，才能把每一個壯麗瞬間都記錄下來，分享給親朋好友！</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="preparation-health">
-                        <span>💊 藥品與個人用品：健康第一，享受加倍！</span>
-                        <span>&#9660;</span>
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header" data-target="day1-activity2">
+                            <span>🌳 下午晚些時候：真鍋庭園與帶廣探索</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day1-activity2" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://gardenstory.jp/wp-content/uploads/2023/08/18.jpg" alt="真鍋庭園內的針葉樹與花園">
+                            </div>
+                            <p class="activity-line"><span class="activity-time">🚗 15:15-15:45：</span><span class="activity-details">從新千歲機場到真鍋庭園的車程約為1小時46分鐘（Map Code: 124 474 68627）。預計約15:15-15:45抵達<span class="highlight">真鍋庭園</span>。</span></p>
+                            <p class="text-guide">💡 導遊小知識：真鍋庭園是日本最大的針葉樹花園，佔地廣達5,000坪，宛如進入了童話世界般美麗。這裡收集了來自世界各地的數千種樹木，從針葉林的莊嚴到花卉的繽紛，四季各有風情，具有極高的觀賞價值。庭園開放時間為8:30至19:00（最晚入場18:00），您可以悠閒地漫步其中，享受大自然的寧靜與美景，非常適合家庭散步和拍照留念。</p>
+                            <p class="activity-line"><span class="activity-time">🗺️ 17:00-17:45：</span><span class="activity-details">在真鍋庭園遊覽約1.5-2小時後，離開，前往帶廣市區。</span></p>
+                        </div>
                     </div>
-                    <div id="preparation-health" class="sub-accordion-content">
-                        <ul class="bullet-list text-gray-700">
-                            <li><span class="list-item-icon">🩹</span> 個人常備藥品：感冒藥、腸胃藥、暈車藥（長途自駕和觀光船可能需要）、過敏藥等。特別是長途車程，暈車藥對小朋友或易暈車的大人可能很重要。</li>
-                            <li><span class="list-item-icon">🚑</span> 簡易急救包：創可貼、消毒棉片等以防萬一。</li>
-                            <li><span class="list-item-icon">👧👦</span> 兒童專用藥品：務必攜帶兒童退燒藥、感冒藥及過敏藥等，並隨身攜帶。</li>
-                            <li><span class="list-item-icon">🧴</span> 個人洗漱用品：部分飯店可能不提供，或您有個人偏好。環保意識抬頭，自備牙刷牙膏也是個好習慣。</li>
-                        </ul>
-                        <p class="text-guide">💡 導遊小知識：健康是革命的本錢！準備好個人所需，才能在旅途中無憂無慮地探索每一個角落！北海道的藥妝店雖然很多，但還是先備好常用藥，以備不時之需喔！</p>
-                    </div>
-                </div>
 
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="preparation-car-safety">
-                        <span>🚗 自駕安全與便利：路況掌握，安心暢遊！</span>
-                        <span>&#9660;</span>
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day1-activity3">
+                            <span>🍖 傍晚：帶廣美食體驗與入住</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day1-activity3" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5aZvWZsbBS3_CV-cMKWJ8Q7QPlbZBmjnlEu1uYRRnV8MKMQRcQpkRO3LFrqzK7GEpFNSmHMvYWRxyKihl1xSdiRMS_f6SshThuUHAV4JfoW7ZIKxJM47BZF2dgVR8P_ggMXLq7OvZ-s4/w1200-h630-p-k-no-nu/80410.jpg" alt="Hageten餐廳外觀">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">前往享用晚餐：<span class="highlight">Hageten</span> (Map Code: 321 163 869*51)，位於帶廣北之屋台附近。</span></p>
+                            <p class="text-guide">💡 導遊小知識：Hageten 是一家位於帶廣的知名餐廳，以其天婦羅和豚丼等日式料理聞名，提供高品質的食材和舒適的用餐環境，深受當地人和遊客喜愛。位於北之屋台附近，方便餐後散步感受當地夜間氛圍。</p>
+                            <p class="activity-line"><span class="list-item-icon">🏨</span><span class="activity-details">晚餐後，入住已確認的住宿：<span class="highlight">帶廣Northland(北方大地)日航酒店</span> (Map Code: 124 594 68308)。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day1_Obihiro_Northland_Hotel.pdf (Google Drive)</a>
+                            <p class="text-guide">📝 導遊小知識：帶廣是十勝地區的農業中心，以其高品質的農產品和乳製品聞名。除了豬肉丼，這裡的甜點也享譽盛名，尤其是由十勝牛奶製成的各式甜點，是品嚐當地美味的絕佳機會。建議您飯後可以散步，感受帶廣夜間的寧靜氛圍。</p>
+                            <!-- Day 1 傍晚 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day1-shopping">
+                                    <span>🛍️ 購物資訊：帶廣伴手禮小舖</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day1-shopping" class="mini-accordion-content">
+                                    <p><strong>六花亭 帶廣本店：</strong> 地址：帶廣市西2條南9丁目6。營業時間：09:00-18:00。推薦：奶油夾心餅乾、草莓巧克力。</p>
+                                    <p><strong>柳月 本店：</strong> 地址：帶廣市大通南8丁目15。營業時間：09:00-18:00。推薦：三方六（年輪蛋糕）。</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="preparation-car-safety" class="sub-accordion-content">
-                        <ul class="bullet-list text-gray-700">
-                            <li><span class="list-item-icon">💳</span> ETC卡：租車時務必同時租用ETC（電子收費）卡。這能讓高速公路收費站通行更順暢，避免排隊，並可能享有折扣，節省時間和麻煩。</li>
-                            <li><span class="list-item-icon">🗺️</span> GPS與Map Code：北海道幅員遼闊，GPS導航至關重要。除了車載GPS，建議下載離線地圖App（如Google Maps的離線地圖功能），並準備好各景點的Map Code。Map Code在日本非常精確，能幫助您準確導航至景點入口或停車場。</li>
-                            <li><span class="list-item-icon">🛣️</span> 路況掌握：北海道夏季駕駛通常很愉快，路況良好。然而，請注意某些景觀道路（例如大雪富良野景觀道的部分路段）可能會有蜿蜒、限速或因施工而臨時管制的情況。務必謹慎駕駛並遵守當地速限。</li>
-                            <li><span class="list-item-icon">🍦</span> 休息站（道の駅）：北海道有許多「道の駅」（公路休息站），不僅是休息、使用乾淨洗手間的好地方，更是購買當地新鮮農產品、特色小吃和紀念品的絕佳地點。善加利用這些設施，特別是帶著孩子旅行時，可以讓長途駕駛變得更有趣。</li>
-                            <li><span class="list-item-icon">⛽</span> 加滿油：在進入郊區或山區前，務必將油箱加滿。北海道有些路段加油站分佈較稀疏。</li>
-                        </ul>
-                        <p class="text-guide">💡 導遊小知識：在北海道自駕，就像是擁有了專屬的移動城堡！但別忘了，城堡的運作需要燃料和地圖！提前規劃好路線，享受沿途的美景，讓駕駛也成為旅程的一部分！</p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="preparation-child">
-                        <span>👶 兒童旅行管理：讓小寶貝玩得盡興！</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="preparation-child" class="sub-accordion-content">
-                        <ul class="bullet-list text-gray-700">
-                            <li><span class="list-item-icon">⏱️</span> 彈性是關鍵：不要過度安排行程。4歲幼童的精力有限，容易疲憊或對某些活動失去興趣。根據孩子的精力水平和興趣，隨時準備調整計畫。輕鬆的行程安排能提供必要的彈性。</li>
-                            <li><span class="list-item-icon">🍭</span> 零食與娛樂：隨時準備充足的零食、飲料和小型、引人入勝的玩具或活動，以應對車程和用餐等待時間。這能有效轉移孩子的注意力，減少不耐煩。</li>
-                            <li><span class="list-item-icon">💺</span> 兒童安全座椅：租車時務必預訂並確認安裝兒童安全座椅，這是日本法律規定，也是確保孩子安全的重要保障。</li>
-                            <li><span class="list-item-icon">🏃‍♀️</span> 步調：優先確保充足的休息和玩樂時間。兒童通常受益於在公園或開放空間的專門玩樂時間，讓他們盡情奔跑、探索。</li>
-                            <li><span class="list-item-icon">👨‍👩‍👧‍👦</span> 安全：在擁擠的節慶區域（如札幌夏日祭、小樽潮祭），務必時刻留意孩童，不要讓他們離開視線。在人多時，可考慮使用兒童牽繩或背帶，增加安全保障。</li>
-                        </ul>
-                        <p class="text-guide">  導遊小知識：帶著小探險家出門，最重要的是他們的笑容！只要他們開心，大人的旅程也加倍精彩！適時的休息和「放電」時間，是保持家庭和諧的秘訣喔！</p>
+                    <div class="ai-prompt-section" id="day1-ai-section">
+                        <label for="day1-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <select id="day1-ai-select">
+                            <option value="">請選擇想知道的內容...</option>
+                            <option value="請用幽默的口吻，推薦北海道帶廣地區的特色美食或餐廳，除了豬肉丼之外，並簡要說明其特色，適合家庭。">帶廣美食小貼士</option>
+                            <option value="請簡要介紹北海道真鍋庭園的歷史背景或植物特色，帶點幽默感。">真鍋庭園的秘密</option>
+                            <option value="請用幽默的口吻，介紹北海道帶廣的夜間休閒活動或特色景點。">帶廣夜晚去哪玩？</option>
+                        </select>
+                        <button class="button" onclick="callAIBot('day1-ai-section')">發問！</button>
+                        <div id="day1-ai-section-response" class="llm-response hidden"></div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Day 1 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day1">
-                <div class="road-info">
-                    <span>🛣️ 路況：順暢</span>
+            <!-- Day 2 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day2">
+                    <div class="road-info">
+                        <span>🛣️ 路況：順暢</span>
+                        <span class="header-time-info">退房：06:45</span>
+                        <span class="header-time-info">出發：07:00</span>
+                    </div>
+                    <span class="main-title">Day 2 (7月20日 | 週日) 帶廣 → 阿寒摩周國家公園探索與住宿</span>
+                    <div class="weather-info">
+                        <span>🌤️ 多雲時晴</span>
+                    </div>
                 </div>
-                <span>Day 1 (7月19日 | 週六) 抵達與輕鬆啟程</span>
-                <div class="weather-info">
-                    <span>☀️ 晴朗</span>
+                <div id="day2" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day2-activity1">
+                            <span>🐄 上午：滿壽屋 麥音與內帶高原牧場</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day2-activity1" class="sub-accordion-content">
+                            <p class="activity-line"><span class="list-item-icon">🍞</span><span class="activity-details">早餐：前往<span class="highlight">滿壽屋 麥音</span> (MAP CODE: 124 503 494*83) 享用。這是一家在帶廣非常受歡迎的麵包店，提供新鮮出爐的麵包和咖啡，是開啟美好一天的絕佳選擇。</span></p>
+                            <div class="image-container">
+                                <img src="https://www.visit-hokkaido.jp/lsc/upfile/spot/0001/0448/10448_3_l.jpg" alt="內帶高原牧場的遼闊草原與牛群">
+                            </div>
+                            <p class="activity-line"><span class="activity-time">🚗 早餐後：</span><span class="activity-details">從帶廣出發，前往位於上士幌町的<span class="highlight">內帶高原牧場</span>（約1小時10分鐘車程，Map Code: 679 127 01763）。</span></p>
+                            <p class="text-guide">💡 導遊小知識：內帶高原牧場是日本最大的公共牧場，佔地廣闊，擁有如畫般的田園風光。這裡的牧場露台 (Naitai Terrace) 營業時間為07:00-19:00（6月至9月），觀景咖啡廳和餐廳的營業時間為11:00至16:00。您可以站在高處俯瞰一望無際的綠色草原，成群的牛隻在悠閒吃草，感受北海道的遼闊與寧靜。這裡也提供新鮮的乳製品，如濃郁的牛奶和香醇的冰淇淋，是品嚐當地美味的絕佳機會，深受大人小孩喜愛。</p>
+                            <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">午餐： 在內帶高原牧場享用午餐。牧場內通常設有餐廳或咖啡廳，提供以當地農產品製作的簡餐和點心。</span></p>
+                            <!-- Day 2 上午 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day2-naitai-shopping">
+                                    <span>🛍️ 購物資訊：內帶高原牧場特產</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day2-naitai-shopping" class="mini-accordion-content">
+                                    <p><strong>牧場直營商店：</strong> 販售新鮮牛奶、起司、優格、冰淇淋等乳製品，以及當地農產品。推薦：牧場霜淇淋、瓶裝牛奶。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header" data-target="day2-activity2">
+                            <span>♨️ 下午：硫磺山與屈斜路湖畔砂湯</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day2-activity2" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://www.visit-hokkaido.jp/lsc/upfile/article/0000/0162/162_1_l.jpg" alt="硫磺山冒煙的景象">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🌋</span><span class="activity-details">午餐結束後，從內帶高原牧場出發，前往**阿寒摩周國家公園**，首先抵達<span class="highlight">硫磺山 (Iouzan)</span>（約1小時30分鐘車程，Map Code: N/A，請導航至地址：北海道川上郡弟子屈町Kawayu, 硫磺山），近距離觀察火山活動的壯觀景象。</span></p>
+                            <p class="text-guide">💡 導遊小知識：硫磺山是一座至今仍活躍的活火山，是川湯溫泉的溫泉源頭。您可以親眼看到從地底噴出的硫磺蒸氣，聞到空氣中獨特的硫磺味，感受大自然的原始能量與生命力！</p>
+                            <div class="image-container">
+                                <img src="https://flyblog.cc/wp-content/uploads/2024/10/batch_DSCF5146.jpg" alt="屈斜路湖砂湯溫泉">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">隨後，繼續前往<span class="highlight">屈斜路湖畔的砂湯</span>（約15分鐘車程，Map Code: 638 138 559）。</span></p>
+                            <p class="text-guide">💡 導遊小知識：屈斜路湖是日本最大的火山口湖，以其清澈的湖水和豐富的自然生態聞名。砂湯是屈斜路湖畔一個非常獨特的景點，您只需要在沙灘上輕輕挖掘，就會有溫泉水從地底湧出，形成一個天然的足湯或手湯！這對孩子來說是個充滿樂趣的互動活動，也是大人放鬆身心的好地方，感受大自然的神奇。</p>
+                            <!-- Day 2 下午 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day2-souvenir-shop">
+                                    <span>🛍️ 購物資訊：硫磺山/屈斜路湖紀念品</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day2-souvenir-shop" class="mini-accordion-content">
+                                    <p>硫磺山周邊商店：販售硫磺主題紀念品、溫泉蛋（可在硫磺蒸氣處烹煮）。</p>
+                                    <p>屈斜路湖畔商店：販售當地特色工藝品、零食、飲料。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day2-activity3">
+                            <span>🏨 傍晚：抵達屈斜路湖周邊與入住</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day2-activity3" class="sub-accordion-content">
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">從砂湯到<span class="highlight">屈斜路湖周邊住宿點</span>（例如弟子屈町或川湯溫泉）的車程約為30分鐘。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">🏨</span><span class="activity-details">抵達後，入住已確認的住宿：**屈斜路湖周邊飯店**（例如<span class="highlight">屈斜路湖王子大飯店</span>，Map Code: 731 573 85105）。並在飯店享用晚餐。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day2_Kussharo_Prince_Hotel.pdf (Google Drive)</a>
+                            <p class="text-guide">📝 導遊小知識：**屈斜路湖王子大飯店**位於屈斜路湖畔，環境優美，部分房間或公共空間能欣賞到湖景。飯店本身設有溫泉設施，可以在晚餐前或飯後放鬆身心。晚上，如果您們有興趣，可以在湖畔散步，感受夜晚的寧靜，有機會看到滿天星斗。</p>
+                            
+                            <h3 class="text-lg font-semibold mt-4">📋 第二天晚上（7月20日）決策點：雲海機率判斷</h3>
+                            <p>在您們結束一天行程後，請務必查詢隔天（7月21日）清晨的雲海預報。由於明天規劃前往津別峠展望台觀賞雲海，這是一個觀測雲海的高機率點。您可以參考一些專門提供雲海預報的日本氣象網站（例如<span class="highlight">Weathernews的「雲海出現NAVI」</span>）或摩周湖觀光協會的官方網站（會發布摩周湖和屈斜路湖的雲海發生率）。</p>
+                            <p class="text-guide">🌦️ 判斷雲海機率的氣象條件：</p>
+                            <ul class="bullet-list ml-4">
+                                <li><span class="list-item-icon">🌫️</span> 濃霧注意報：如果天氣預報發布了十勝、釧路、根室地區的「濃霧注意報」，這是雲海發生機率高的重要指標。</li>
+                                <li><span class="list-item-icon">⛅</span> 早晚多雲/霧，白天轉晴：理想的預報是「3小時後的預報顯示早晚是陰天或有霧，而白天會轉為晴朗」。</li>
+                                <li><span class="list-item-icon">🌬️</span> 低溫、高濕度、無風：這些是雲海形成的基本條件。清晨氣溫越低，濕度越高，風力越小，機率越高。</li>
+                                <li><span class="list-item-icon">🌧️</span> 避免雨雲：如果預報顯示峠附近有「濃灰色或小紫色雨雲標誌」，則看到雲海的機率會非常低。</li>
+                            </ul>
+                            <p class="text-guide">⏰ 請務必在睡前做好決定，並設定好鬧鐘，因為清晨出發時間非常早。觀賞雲海通常意味著凌晨3點左右就要起床出發。無論最終決定如何，這個「決策點」也為您的旅程增添了彈性與驚喜。</p>
+                            <button class="button" onclick="callAIBotForCloudSea('day2-cloud-sea-forecast', '請根據北海道7月21日清晨的氣象條件（濃霧注意報、早晚多雲/霧白天轉晴、低溫高濕無風），判斷津別峠展望台出現雲海的機率高低，並提供簡要的說明。請帶點幽默感，像是給天氣報馬仔。')">AI 為您決策：雲海機率判</button>
+                            <div id="day2-cloud-sea-forecast-response" class="llm-response hidden"></div>
+                        </div>
+                    </div>
+                    <div class="ai-prompt-section" id="day2-ai-section">
+                        <label for="day2-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <select id="day2-ai-select">
+                            <option value="">請選擇想知道的內容...</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道內帶高原牧場的歷史和獨特之處，以及推薦的乳製品。">內帶高原牧場的牛牛故事</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道屈斜路湖砂湯的獨特之處和趣味體驗。">屈斜路湖砂湯的秘密</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道硫磺山的地理特色和安全觀賞小貼士。">硫磺山的熱情物語</option>
+                            <option value="請用幽默的口吻，介紹屈斜路湖周邊適合家庭的夜間活動，例如觀星。">屈斜路湖畔的星空物語</option>
+                        </select>
+                        <button class="button" onclick="callAIBot('day2-ai-section')">發問！</button>
+                        <div id="day2-ai-section-response" class="llm-response hidden"></div>
+                    </div>
                 </div>
             </div>
-            <div id="day1" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day1-activity1">
-                        <span>✈️ 上午/下午：抵達新千歲機場 (CTS) 與租車前往帶廣 (11:55 ETA)</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day1-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://imageproxy.pixnet.cc/imgproxy?url=https://pic.pimg.tw/omelettejando/1533318390-1857703229_n.jpg" alt="新千歲機場內部照片">
-                        </div>
-                        <p class="activity-line"><span class="activity-time">✈️ 11:55 ETA：</span><span class="activity-details">您的長榮航空 BR166 班機預計於上午11:55抵達新千歲機場。<br>下了飛機，您會感受到北海道清新的空氣，這趟奇遇就此拉開序幕！</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">抵達後，請前往租車櫃檯領取預訂的車輛。<br>考慮到您有四位成人和兩位兒童，以及隨行的行李，我們強烈建議選擇一輛寬敞舒適的休旅車或大型SUV，例如Toyota Alphard或Honda Stepwgn等，確保所有成員都能在旅途中享受寬敞的乘坐空間，並有充足的儲物容量。</span></p>
-                        <p class="text-guide">💡 導遊小知識：提早1.5小時（相較於下午的航班）抵達，意味著您們有更從容的時間辦理入境、領取行李和進行租車手續，避免了剛下飛機的慌亂。這對於有4歲幼童的家庭來說，能大大減輕首日的壓力，讓旅程有個平靜舒適的開始。</p>
-                        <p class="activity-line"><span class="activity-time">🗺️ 13:25-13:55：</span><span class="activity-details">辦理完租車手續後（預計約1.5-2小時，Times Car Rental 櫃檯營業至19:00，Map Code: 161 334 336*87），您們就可以從機場出發，正式展開北海道的自駕旅程，前往廣袤十勝平原的中心城市——帶廣。沿途您會逐漸感受到北海道特有的田園風光，綠意盎然，令人心曠神怡。</span></p>
-                    </div>
-                </div>
 
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="day1-activity2">
-                        <span>🌳 下午晚些時候：真鍋庭園與帶廣探索</span>
-                        <span>&#9660;</span>
+            <!-- Day 3 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day3">
+                    <div class="road-info">
+                        <span>🛣️ 路況：順暢</span>
+                        <span class="header-time-info">退房：07:45</span>
+                        <span class="header-time-info">出發：08:15</span>
                     </div>
-                    <div id="day1-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://gardenstory.jp/wp-content/uploads/2023/08/18.jpg" alt="真鍋庭園內的針葉樹與花園">
-                        </div>
-                        <p class="activity-line"><span class="activity-time">🚗 15:15-15:45：</span><span class="activity-details">從新千歲機場到真鍋庭園的車程約為1小時46分鐘（Map Code: 124 167 430*15）。預計約15:15-15:45抵達<span class="highlight">真鍋庭園</span>。</span></p>
-                        <p class="text-guide">💡 導遊小知識：真鍋庭園是日本最大的針葉樹花園，佔地廣達5,000坪，宛如進入了童話世界般美麗。這裡收集了來自世界各地的數千種樹木，從針葉林的莊嚴到花卉的繽紛，四季各有風情，具有極高的觀賞價值。庭園開放時間為8:30至17:30（入園截止至17:00），您可以悠閒地漫步其中，享受大自然的寧靜與美景，非常適合家庭散步和拍照留念。</p>
-                        <p class="activity-line"><span class="activity-time">🗺️ 17:00-17:45：</span><span class="activity-details">在真鍋庭園遊覽約1.5-2小時後，離開，前往帶廣市區。</span></p>
+                    <span class="main-title">Day 3 (7月21日 | 週一) 雲海日出、摩周湖與知床世界遺產</span>
+                    <div class="weather-info">
+                        <span>☀️ 晴朗</span>
                     </div>
                 </div>
+                <div id="day3" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day3-activity1">
+                            <span>🌅 極早清晨：津別峠展望台雲海觀賞與飯店早餐</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day3-activity1" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://www.visit-hokkaido.jp/lsc/upfile/articleDetail/0000/1792/1792_1_m.jpg" alt="津別峠展望台的雲海日出景觀">
+                            </div>
+                            <p class="activity-line"><span class="activity-time">⏰ 03:30：</span><span class="activity-details">從屈斜路湖王子大飯店出發（Map Code: 739 867 88160）。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">03:30 - 04:00：</span><span class="activity-details">駕車前往<span class="highlight">津別峠展望台</span>（約30分鐘車程）。</span></p>
+                            <p class="text-guide">💡 導遊小知識：津別峠展望台海拔947公尺，是觀賞屈斜路湖雲海的頂級地點之一，與美幌峠齊名，且距離屈斜路湖王子大飯店更近。7月是觀賞雲海的黃金時期。在日出時分（7月21日日出約4:14）觀賞壯麗的雲海，您會看到無邊無際的雲海覆蓋著屈斜路湖，隨著太陽緩緩升起，雲層被染上神秘的色彩，形成一場由雲與光交織而成的視覺盛宴。清晨山頂氣溫較低，務必備足保暖衣物。</p>
+                            <p class="activity-line"><span class="list-item-icon">🍳</span><span class="activity-time">06:00 - 07:00：</span><span class="activity-details">觀賞結束後，駕車返回**屈斜路湖王子大飯店**，享用飯店提供的豐盛早餐。結束早起的雲海行程後，能在飯店舒適地用餐，為接下來的行程補充體力，是非常棒的安排！</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Kussharo_Prince_Hotel_Breakfast.pdf (Google Drive)</a>
+                        </div>
+                    </div>
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header" data-target="day3-activity2">
+                            <span>💧 上午：摩周湖與知床沿途風光</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day3-activity2" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://intranet.travel4u.com.tw/eWeb_t4u/IMGDB/002294/002297/002347/00070252.JPG" alt="摩周湖的清澈湖水與周圍山景">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🗺️</span><span class="activity-time">08:00：</span><span class="activity-details">從屈斜路湖王子大飯店出發，辦理退房手續。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">08:00 - 08:30：</span><span class="activity-details">駕車前往<span class="highlight">摩周湖第一展望台</span>（約30分鐘車程，Map Code: 613 781 46047）。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">🏞️</span><span class="activity-time">08:30 - 09:30：</span><span class="activity-details">觀賞摩周湖美景（約1小時）。</span></p>
+                            <p class="text-guide">💡 導遊小知識：摩周湖被譽為「摩周藍」，以其世界上數一數二的透明度而聞名，湖水呈現出令人驚嘆的深藍色調，彷彿一顆藍寶石鑲嵌在群山之中。摩周湖第一展望台24小時開放，讓您能在最佳光線下欣賞這片「神之湖」。即使沒有雲海，清晨的湖面也極為靜謐美麗，給人一種神秘而莊嚴的感覺。</p>
+                            <div class="image-container">
+                                <img src="https://www.visit-hokkaido.jp/lsc/upfile/articleDetail/0000/0528/528_1_m.jpg" alt="北海道天堂之路筆直延伸的公路">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🛣️</span><span class="activity-time">09:30 - 11:30：</span><span class="activity-details">從摩周湖出發，前往知床宇登呂地區。這段車程約為2小時。途中，您將順路經過<span class="highlight">天堂之路</span>（位於網走附近，Map Code: 642 561 453）。</span></p>
+                            <p class="text-guide">💡 導遊小知識：天堂之路因其筆直無盡的道路，彷彿直達天際而得名。這是一條長達28.1公里的直線道路，在視覺上給人一種衝向天邊的錯覺，是北海道自駕之旅的標誌性景觀之一。您可以將車停在路邊的安全區域，拍下令人驚嘆的照片，感受北海道的廣闊與壯麗。這是一次快速而令人印象深刻的駕車體驗。</p>
+                            <div class="image-container">
+                                <img src="https://blog.tripbaa.com/wp-content/uploads/2018/04/1-2-1024x683.jpg" alt="知床雙美瀑布的壯觀水流">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">💦</span><span class="activity-time">11:30 - 12:00：</span><span class="activity-details">隨後，您將順路經過<span class="highlight">雙美瀑布 (Oshinkoshin Falls)</span> (Map Code: 894 727 26111) ，進行短暫停留。</span></p>
+                            <p class="text-guide">💡 導遊小知識：雙美瀑布是知床地區最大的瀑布，高達70公尺，因水流在途中分為兩股而得名「雙美瀑布」，並入選「日本瀑布百選」。從觀景台可近距離感受瀑布的磅礴氣勢。</p>
+                        </div>
+                    </div>
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day3-activity3">
+                            <span>🛥️ 午餐與下午：宇登呂漁港觀光船</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day3-activity3" class="sub-accordion-content">
+                            <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-time">12:00 - 13:00：</span><span class="activity-details">在知床宇登呂地區享用午餐：<span class="highlight">圓子水產海鮮洞餐廳</span> (Map Code: 894 854 353*88)。您可以選擇當地特色的海鮮丼或簡餐。</span></p>
+                            <div class="image-container">
+                                <img src="https://lantoko.com/wp-content/uploads/2023/06/utorosummer4.jpg" alt="宇登呂港的鯨豚觀察觀光船">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🛥️</span><span class="activity-time">14:30 - 14:40：</span><span class="activity-details">前往<span class="highlight">宇登呂（ウトロ）漁港</span>（Map Code: 797 571 700*88），準備搭乘**自然風景＋鯨豚觀察觀光船**。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">⏱️</span><span class="activity-time">14:40 - 16:55：</span><span class="activity-details">搭乘觀光船（船程約2小時15分鐘）。請務必提前預約此船班，尤其在7月旺季。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Shiretoko_Cruise_PM_Ticket.pdf (Google Drive)</a>
+                            <p class="text-guide">💡 導遊小知識：從宇登呂港出發的觀光船，將帶您沿著知床半島崎嶇的海岸線航行，欣賞壯麗的海崖、瀑布，並有機會觀察到棲息在知床的野生棕熊、海鳥，甚至幸運的話，還能邂逅鯨魚和海豚。這是一次從海上欣賞世界遺產獨特風光的絕佳機會。</p>
 
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day1-activity3">
-                        <span>🍖 傍晚：帶廣美食體驗與入住</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day1-activity3" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://boniutravel.com/wp-content/uploads/2024/10/55-5.jpg" alt="帶廣豚丼的特寫">
+                            <h4 class="font-semibold mb-2 mt-4">🏨 晚上：入住知床第一飯店</h4>
+                            <p class="activity-line"><span class="list-item-icon">😴</span><span class="activity-time">約 16:55：</span><span class="activity-details">觀光船結束後，前往已確認的住宿——<span class="highlight">知床第一飯店</span>（Map Code: 757 540 17813）辦理入住。這家酒店以其舒適的設施和溫泉聞名，是結束一天充實行程的完美歸宿。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Shiretoko_Daiichi_Hotel.pdf (Google Drive)</a>
+                            <!-- Day 3 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day3-shopping">
+                                    <span>🛍️ 購物資訊：知床特色伴手禮</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day3-shopping" class="mini-accordion-content">
+                                    <p><strong>知床世界遺產中心：</strong> 地址：斜里町宇登呂東186-10。營業時間：08:30-17:30。提供知床自然資訊與紀念品販售。</p>
+                                    <p><strong>道之站宇登呂・Shirietoku：</strong> 地址：斜里町宇登呂西186-8。營業時間：08:00-18:00。提供當地特產、海鮮加工品、紀念品。</p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">前往享用晚餐：<span class="highlight">帶廣元祖豚丼番長 (Pancho)</span> (Map Code: 124 602 120*00)。</span></p>
-                        <p class="text-guide">💡 導遊小知識：Pancho是帶廣豬肉丼的發源地，自1933年創立以來，以其秘製醬汁和厚切豬肉片聞名全國。豬肉丼是為了給從事農業勞動的人們提供充足體力而誕生的料理，份量十足，肉質鮮美。每碗豬肉丼都承載著北海道十勝地區的熱情與力量。**請注意，Pancho的營業時間為11:00-19:00，若您在真鍋庭園停留時間較長，可能會非常趕。建議您提前預訂或考慮其他晚餐選擇，如充滿在地風味的「北之屋台」美食街，其營業時間依各店鋪而異，部分會較晚關門，提供更多彈性。**</p>
-                        <p class="activity-line"><span class="list-item-icon">🏨</span><span class="activity-details">晚餐後，入住已確認的住宿：<span class="highlight">帶廣Northland(北方大地)日航酒店</span> (Map Code: 124 606 876*60)。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day1_Obihiro_Northland_Hotel.pdf (Google Drive)</a>
-                        <p class="text-guide">📝 導遊小知識：帶廣是十勝地區的農業中心，以其高品質的農產品和乳製品聞名。除了豬肉丼，這裡的甜點也享譽盛名，尤其是由十勝牛奶製成的各式甜點，是品嚐當地美食的絕佳機會。建議您飯後可以散步，感受帶廣夜間的寧靜氛圍。</p>
                     </div>
-                </div>
-                <div class="ai-prompt-section" id="day1-ai-section">
-                    <label for="day1-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <select id="day1-ai-select">
-                        <option value="">請選擇想知道的內容...</option>
-                        <option value="請用幽默的口吻，推薦北海道帶廣地區的特色美食或餐廳，除了豬肉丼之外，並簡要說明其特色，適合家庭。">帶廣美食小貼士</option>
-                        <option value="請簡要介紹北海道真鍋庭園的歷史背景或植物特色，帶點幽默感。">真鍋庭園的秘密</option>
-                        <option value="請用幽默的口吻，介紹北海道帶廣的夜間休閒活動或特色景點。">帶廣夜晚去哪玩？</option>
-                    </select>
-                    <button class="button" onclick="callAIBot('day1-ai-section')">發問！</button>
-                    <div id="day1-ai-section-response" class="llm-response hidden"></div>
+                    <div class="ai-prompt-section" id="day3-ai-section">
+                        <label for="day3-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <select id="day3-ai-select">
+                            <option value="">請選擇想知道的內容...</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道津別峠展望台觀賞雲海的獨特體驗和最佳時機。">津別峠雲海的浪漫邂逅</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道摩周湖的神秘起源或一個有趣的傳說，以及它被稱為「霧之摩周湖」的原因。">摩周湖：藍寶石與霧的交響曲</option>
+                            <option value="請用幽默的口吻，簡要解說北海道知床宇登呂漁港觀光船沿途可能看到的美景，以及背後的小故事，包括鯨豚種類和觀賞秘訣。">出海，與知床海豚鯨魚共舞！</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道知床五湖的特色，以及適合親子遊的理由，包括動植物觀察和安全措施。">知床五湖：小探險家的樂園</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道天堂之路的視覺奇觀和拍照技巧，讓照片充滿趣意。">天堂之路：拍出大片的神奇視角</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道雙美瀑布和Puyuni岬的自然特色，以及它們作為知床八景的魅力。">雙美瀑布與Puyuni岬：海岸線上的驚嘆號</option>
+                        </select>
+                        <button class="button" onclick="callAIBot('day3-ai-section')">發問！</button>
+                        <div id="day3-ai-section-response" class="llm-response hidden"></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Day 2 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day2">
-                <div class="road-info">
-                    <span>🛣️ 路況：順暢</span>
+            <!-- Day 4 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day4">
+                    <div class="road-info">
+                        <span>🛣️ 路況：多雲</span>
+                        <span class="header-time-info">退房：09:30</span>
+                        <span class="header-time-info">出發：10:00</span>
+                    </div>
+                    <span class="main-title">Day 4 (7月22日 | 週二) 知床秘境與東部風光</span>
+                    <div class="weather-info">
+                        <span>☀️ 晴朗</span>
+                    </div>
                 </div>
-                <span>Day 2 (7月20日 | 週日) 帶廣 → 阿寒摩周國家公園探索與住宿</span>
-                <div class="weather-info">
-                    <span>🌤️ 多雲時晴</span>
+                <div id="day4" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day4-activity1">
+                            <span>🏞️ 上午：Puyuni岬與知床五湖高架木棧道</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day4-activity1" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://amatavi.life/wp-content/uploads/2019/05/93f8cfa3798c07bcd91c381f7ad91e31.jpg" alt="Puyuni岬的壯麗景色">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🏞️</span><span class="activity-details">早餐後，首先前往<span class="highlight">Puyuni岬 (Puyuni Cape)</span> (Map Code: 797 561 411*44)，進行短暫停留。</span></p>
+                            <p class="text-guide">💡 導遊小知識：Puyuni岬是「知床八景」之一，提供鄂霍次克海和知床連峰的絕佳視野點，也是欣賞海上落日的理想地點。</p>
+                            <div class="image-container">
+                                <img src="https://imageproxy.pixnet.cc/imgproxy?url=https://pic.pimg.tw/paulchi543/1688501198-863760503-g_l.jpg" alt="知床五湖高架木棧道上的遊客與湖景">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🚶‍♀️</span><span class="activity-details">隨後，前往<span class="highlight">知床五湖（高架木棧道）</span>進行遊覽（約1小時，Map Code: 797 571 183*00）。</span></p>
+                            <p class="text-guide">💡 導遊小知識：知床五湖是聯合國教科文組織世界遺產知床半島的核心景點。高架木棧道是一條1.6公里的往返步道，設計為無障礙設施，非常適合輪椅和嬰兒車，對4歲的幼童來說是理想的選擇。它全年免費開放，並設有電子圍欄以保護遊客免受棕熊的影響，確保安全無憂的體驗。知床世界遺產中心（Map Code: 797 571 777*60）位於附近，如果時間充裕，可以快速瀏覽，了解知床的自然歷史與生態。</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header" data-target="day4-activity2">
+                            <span>🦀 午餐：網走產地直送帝王蟹美食</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day4-activity2" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://www.ohotsuku.com/img/item/aburagani.jpg" alt="網走產地直送新鮮帝王蟹">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-time">11:00 AM - 12:30 PM：</span><span class="activity-details">在網走享用豐盛的<span class="highlight">產地直送帝王蟹美食</span>：<span class="highlight">渡邊水產</span> (Map Code: 305 643 319*68)。網走是鄂霍次克海的港口城市，海產新鮮是這裡的特色。</span></p>
+                            <p class="text-guide">💡 導遊小知識：「渡邊水產」是一家漁夫直營的水產店，以提供活螃蟹聞名，是品嚐帝王蟹的推薦地點。營業時間為09:00至17:00。渡邊水產提供部分內用座位，可以吃到新鮮剛煮熟的螃蟹，另外還提供預訂服務。現場內用的話，店家會幫忙處理到方便吃的程度，但因為這裡不是專門餐廳，所以沒有提供其他餐點。</p>
+                            <!-- Day 4 午餐 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day4-abashiri-shopping">
+                                    <span>🛍️ 購物資訊：網走伴手禮</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day4-abashiri-shopping" class="mini-accordion-content">
+                                    <p><strong>道之站 流冰街道網走：</strong> 地址：網走市南3條東4丁目5-1。營業時間：09:00-18:00。推薦：流冰主題商品、海鮮乾貨、當地農產品。</p>
+                                    <p><strong>一榮燒帆立貝：</strong> 淋上醬汁炙烤的超大顆帆立貝，海味十足，但開封後需冷藏。</p>
+                                    <p><strong>山榮起司干貝糖：</strong> 一口大小的起司干貝糖，鹹香起司搭配干貝，令人上癮。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day4-activity3">
+                            <span>♨️ 下午晚些時候：前往層雲峽溫泉與入住</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day4-activity3" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://www.tabirai.net/tabirai-uploader/img/0034748/s9_0034748.jpg" alt="層雲峽溫泉旅館的露天浴池">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">02:30 PM - 04:30 PM：</span><span class="activity-details">從網走午餐地點出發，前往<span class="highlight">層雲峽溫泉</span>（約2小時車程，Map Code: 623 206 000*00）。</span></p>
+                            <p class="text-guide">⚠️ **重要提示：** 這一天行程雖然經過優化，但仍包含較長的駕駛時間（總駕駛時間約5小時15分鐘）。請務必預留充足的休息時間，並保持彈性，必要時可縮短部分景點的停留時間，以確保旅途舒適與安全。此路線不會經過「三國峠」和「松見大橋」，這兩個景點位於不同的國道上，納入行程會大幅繞路，增加疲勞。**</p>
+                            <p class="activity-line"><span class="list-item-icon">🏨</span><span class="activity-time">04:30 PM：</span><span class="activity-details">抵達已確認的住宿——<span class="highlight">層雲峽朝陽渡假酒店</span>（Map Code: 623 204 74151）。辦理入住手續後，稍作休息，從長途駕駛中恢復體力。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day4_Sounkyo_Choyotei_Hotel.pdf (Google Drive)</a>
+                            <p class="text-guide">♨️ 導遊小知識：層雲峽溫泉是大雪山國家公園內的著名溫泉鄉，以其豐富的泉量和周邊壯麗的峽谷景色聞名。這裡的溫泉屬於硫磺泉，對皮膚病和關節炎有益。泡湯不僅能舒緩旅途疲憊，也是體驗日本文化的重要一環，讓身心得到徹底的放鬆。</p>
+                            <!-- Day 4 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day4-sounkyo-shop">
+                                    <span>🛍️ 購物資訊：層雲峽伴手禮</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day4-sounkyo-shop" class="mini-accordion-content">
+                                    <p><strong>層雲峽溫泉街商店：</strong> 層雲峽溫泉街上有許多販售當地特產和溫泉相關商品的商店。推薦：溫泉饅頭、愛努族工藝品。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-prompt-section" id="day4-ai-section">
+                        <label for="day4-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <select id="day4-ai-select">
+                            <option value="">請選擇想知道的內容...</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道鄂霍次克流冰館的特色，以及夏季參觀的樂趣。">流冰館的冰雪奇緣</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道YOKOYAMA Fruit Farm的水果種類，以及採摘體驗的樂趣。">水果樂園的甜蜜誘惑</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道狐狸在日本文化和傳說中的地位和故事，特別是與狐狸仙相關的內容。">狐狸的小秘密</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道層雲峽溫泉名稱的由來與開拓史。">層雲峽名稱的由來與開拓史</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道層雲峽與愛努族的傳說。">層雲峽與愛努族傳說</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道層雲峽的地理演變。">層雲峽的地理演變</option>
+                        </select>
+                        <button class="button" onclick="callAIBot('day4-ai-section')">發問！</button>
+                        <div id="day4-ai-section-response" class="llm-response hidden"></div>
+                    </div>
                 </div>
             </div>
-            <div id="day2" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day2-activity1">
-                        <span>🐄 上午：內帶高原牧場 (Naitai Highland Farm)</span>
-                        <span>&#9660;</span>
+
+            <!-- Day 5 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day5">
+                    <div class="road-info">
+                        <span>🛣️ 路況：良好</span>
+                        <span class="header-time-info">退房：09:30</span>
+                        <span class="header-time-info">出發：10:00</span>
                     </div>
-                    <div id="day2-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.visit-hokkaido.jp/lsc/upfile/spot/0001/0448/10448_3_l.jpg" alt="內帶高原牧場的遼闊草原與牛群">
-                        </div>
-                        <p class="activity-line"><span class="activity-time">🚗 早餐後：</span><span class="activity-details">從帶廣出發，前往位於上士幌町的<span class="highlight">內帶高原牧場</span>（約1小時10分鐘車程，Map Code: 512 045 439*00）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：內帶高原牧場是日本最大的公共牧場，佔地廣闊，擁有如畫般的田園風光。這裡的牧場露台 (Naitai Terrace) 營業時間為9:00至17:00，您可以站在高處俯瞰一望無際的綠色草原，成群的牛隻在悠閒吃草，感受北海道的遼闊與寧靜。這裡也提供新鮮的乳製品，如濃郁的牛奶和香醇的冰淇淋，是品嚐當地美味的絕佳機會，深受大人小孩喜愛。</p>
-                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">午餐： 在內帶高原牧場享用午餐。牧場內通常設有餐廳或咖啡廳，提供以當地農產品製作的簡餐和點心。</span></p>
+                    <span class="main-title">Day 5 (7月23日 | 週三) 高山景緻與森林童話</span>
+                    <div class="weather-info">
+                        <span>☀️ 晴朗</span>
                     </div>
                 </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="day2-activity2">
-                        <span>♨️ 下午：屈斜路湖砂湯與硫磺山</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day2-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://flyblog.cc/wp-content/uploads/2024/10/batch_DSCF5146.jpg" alt="屈斜路湖砂湯溫泉">
+                <div id="day5" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day5-activity1">
+                            <span>🚠 上午：黑岳口纜車 (Kurodake Ropeway)</span>
+                            <span>&#9660;</span>
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">從內帶高原牧場出發，前往**阿寒摩周國家公園**，首先抵達<span class="highlight">屈斜路湖畔的砂湯</span>（約1小時30分鐘車程，Map Code: 927 197 101*48）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：屈斜路湖是日本最大的火山口湖，以其清澈的湖水和豐富的自然生態聞名。砂湯是屈斜路湖畔一個非常獨特的景點，您只需要在沙灘上輕輕挖掘，就會有溫泉水從地底湧出，形成一個天然的足湯或手湯！這對孩子來說是個充滿樂趣的互動活動，也是大人放鬆身心的好地方，感受大自然的神奇。</p>
-
-                        <div class="image-container">
-                            <img src="https://www.visit-hokkaido.jp/lsc/upfile/article/0000/0162/162_1_l.jpg" alt="硫磺山冒煙的景象">
+                        <div id="day5-activity1" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://www.visit-hokkaido.jp/lsc/upfile/spot/0001/0350/10350_1_l.jpg" alt="黑岳口纜車俯瞰大雪山國家公園">
+                            </div>
+                            <p class="activity-line"><span class="activity-time">🏞️ 早餐後：</span><span class="activity-details">體驗<span class="highlight">黑岳口纜車</span>的壯麗景色。這條位於層雲峽的纜車提供令人驚嘆的7分鐘旅程，將您上升至海拔1300公尺，可飽覽大雪山國家公園的全景，視野極其開闊（Map Code: 623 204 54320）。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day5_Kurodake_Ropeway_Ticket.pdf (Google Drive)</a>
+                            <p class="text-guide">💡 導遊小知識：黑岳纜車是日本最北端的纜車，在7月，纜車通常從6:00營運至18:00，每20分鐘一班。搭乘纜車本身對孩子來說是一次刺激的體驗，他們會興奮地俯瞰腳下的森林和峽谷。而大人則會欣賞到雄偉的自然風光，感受大雪山的宏偉與壯麗，夏天即使沒有雪，綠意盎然的山脈也別具一番風情。</p>
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🌋</span><span class="activity-details">隨後，繼續前往<span class="highlight">硫磺山 (Iouzan)</span>（約15分鐘車程，Map Code: 927 007 882*47），近距離觀察火山活動的壯觀景象。</span></p>
-                        <p class="text-guide">💡 導遊小知識：硫磺山是一座至今仍活躍的活火山，是川湯溫泉的溫泉源頭。您可以親眼看到從地底噴出的硫磺蒸氣，聞到空氣中獨特的硫磺味，感受大自然的原始能量與生命力！</p>
                     </div>
-                </div>
 
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day2-activity3">
-                        <span>🏨 傍晚：抵達屈斜路湖周邊與入住</span>
-                        <span>&#9660;</span>
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day5-activity2">
+                            <span>🌸 上午晚些時候/午餐：美瑛夏日花季與雲霄飛車之路</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day5-activity2" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://www.tabirai.net/tabirai-uploader/img/0005017/s1_0005017.jpg" alt="大雪富良野景觀道的花田與遠山">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">下山後，離開層雲峽，沿著<span class="highlight">大雪富良野景觀道</span>（國道237號）駕車前往美瑛。從層雲峽到美瑛四季彩之丘的車程約為1.5至2小時。</span></p>
+                            <p class="text-guide">💡 導遊小知識：這條路線不僅僅是從A點到B點的交通要道，它本身就是一個目的地。這條景觀道蜿蜒穿過如畫的起伏丘陵、繽紛的花田（在夏季，您可能會看到沿途的薰衣草和其他各色花卉），並以大雪山和十勝岳山脈為壯麗背景。將單純的駕駛轉化為一場視覺盛宴，讓您真正沉浸在北海道的夏日美景中。沿途有許多小店或景觀點可以隨時停車拍照。</p>
+                            <div class="image-container">
+                                <img src="https://inin.tw/wp-content/uploads/20230717140936_19.jpg" alt="四季彩之丘的彩色花田與農用拖拉機">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🚜</span><span class="font-bold">下午：</span><span class="activity-details">首先參觀美瑛的<span class="highlight">四季彩之丘 (Shikisai-no-oka)</span>（Map Code: 349 701 185*07），該處在7月至9月期間開放時間為8:40至17:30。它擁有種類繁多的花卉，呈現出壯麗的彩色花海。四季彩之丘提供拖拉機巴士遊覽，對4歲的幼童來說尤其有趣。請注意，15歲以上需支付500日圓入場費，15歲以下為300日圓。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">🎢</span><span class="activity-details">結束四季彩之丘後，駕車行駛在獨特的<span class="highlight">雲霄飛車之路</span>上（Map Code: 349 636 899*28）。美瑛以其「拼布丘陵」和多樣化的花田而聞名。</span></p>
+                            <p class="text-guide">💡 導遊小知識：位於上富良野的雲霄飛車之路，提供一段約15分鐘的刺激駕駛體驗，其劇烈的起伏彷彿置身於雲霄飛車般，同時能欣賞周圍田野和十勝岳山脈的全景，從車內欣賞趣味十足，是北海道特有的自駕樂趣。</p>
+                            <p class="activity-line"><span class="list-item-icon">🍰</span><span class="activity-details">之後前往<span class="highlight">Furano Delice菓子工房</span> (MAP CODE: 450 028 262*10)，吃完點心才回新富良野王子大飯店。這家店以其「半熟乳酪蛋糕」聞名，口感綿密，是富良野必訪的甜點店。</span></p>
+                            <div class="image-container">
+                                <img src="https://www.bring-you.info/imgs/2024/01/ninguru-terrace-8.jpg" alt="森林精靈露臺夜間的燈光與木屋">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🌲</span><span class="activity-details">傍晚：抵達富良野並入住已確認的住宿——<span class="highlight">新富良野王子大飯店</span>（Map Code: 450 028 71528）。辦理入住後，可以稍作休息，為晚上的探險做準備。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day5_Furano_Prince_Hotel.pdf (Google Drive)</a>
+                            <p class="activity-line"><span class="list-item-icon">🌃</span><span class="activity-details">晚上：探索迷人的<span class="highlight">森林精靈露臺</span>（Map Code: 919 553 45247）。這個由手工藝品店組成的小村落，坐落在新富良野王子飯店旁的森林之中，營造出童話般的魔法氛圍。</span></p>
+                            <p class="text-guide">💡 導遊小知識：森林精靈露臺的名字源於日本作家倉本聰筆下的小精靈「Ningle」，他們是森林的智慧守護者。在7月至8月期間，它開放時間為10:00至20:45，並免費入場。這裡的每間小木屋都販售著獨特的手工藝品，如玻璃製品、皮革製品和木製品，充滿了藝術氣息。傍晚時分，當小徑上的燈光亮起，整個露臺更是美輪美奐，彷彿置身於童話世界中，非常適合悠閒的傍晚漫步，選購獨特的紀念品，對大人和小孩都充滿吸引力。</p>
+                            <!-- Day 5 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day5-shopping">
+                                    <span>🛍️ 購物資訊：富良野/美瑛伴手禮</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day5-shopping" class="mini-accordion-content">
+                                    <p><strong>富良野 Marche：</strong> 地址：富良野市幸町13-1。營業時間：10:00-19:00。推薦：富良野葡萄酒、當地農產品、薰衣草製品。</p>
+                                    <p><strong>美瑛選果：</strong> 地址：美瑛町大町2丁目。營業時間：09:00-17:00。推薦：美瑛產新鮮蔬菜、水果、美瑛牛奶麵包。</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="day2-activity3" class="sub-accordion-content">
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">從硫磺山到<span class="highlight">屈斜路湖周邊住宿點</span>（例如弟子屈町或川湯溫泉）的車程約為30分鐘。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🏨</span><span class="activity-details">抵達後，入住已確認的住宿：**屈斜路湖周邊飯店**（例如屈斜路湖王子大飯店，Map Code: 927 186 630*00）。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day2_Kussharo_Prince_Hotel.pdf (Google Drive)</a>
-                        <p class="text-guide">📝 導遊小知識：**屈斜路湖王子大飯店**位於屈斜路湖畔，環境優美，部分房間或公共空間能欣賞到湖景。飯店本身設有溫泉設施，可以在晚餐前或飯後放鬆身心。晚上，如果您們有興趣，可以在湖畔散步，感受夜晚的寧靜，有機會看到滿天星斗。</p>
-                        
-                        <h3 class="text-lg font-semibold mt-4">📋 第二天晚上（7月20日）決策點：雲海機率判斷</h3>
-                        <p>在您們結束一天行程後，請務必查詢隔天（7月21日）清晨的雲海預報。由於明天規劃前往津別峠展望台觀賞雲海，這是一個觀測雲海的高機率點。您可以參考一些專門提供雲海預報的日本氣象網站（例如<span class="highlight">Weathernews的「雲海出現NAVI」</span>）或摩周湖觀光協會的官方網站（會發布摩周湖和屈斜路湖的雲海發生率）。</p>
-                        <p class="text-guide">🌦️ 判斷雲海機率的氣象條件：</p>
-                        <ul class="bullet-list ml-4">
-                            <li><span class="list-item-icon">🌫️</span> 濃霧注意報：如果天氣預報發布了十勝、釧路、根室地區的「濃霧注意報」，這是雲海發生機率高的重要指標。</li>
-                            <li><span class="list-item-icon">⛅</span> 早晚多雲/霧，白天轉晴：理想的預報是「3小時後的預報顯示早晚是陰天或有霧，而白天會轉為晴朗」。</li>
-                            <li><span class="list-item-icon">🌬️</span> 低溫、高濕度、無風：這些是雲海形成的基本條件。清晨氣溫越低，濕度越高，風力越小，機率越高。</li>
-                            <li><span class="list-item-icon">🌧️</span> 避免雨雲：如果預報顯示峠附近有「濃灰色或小紫色雨雲標誌」，則看到雲海的機率會非常低。</li>
-                        </ul>
-                        <p class="text-guide">⏰ 請務必在睡前做好決定，並設定好鬧鐘，因為清晨出發時間非常早。觀賞雲海通常意味著凌晨3點左右就要起床出發。無論最終決定如何，這個「決策點」也為您的旅程增添了彈性與驚喜。</p>
-                        <button class="button" onclick="callAIBotForCloudSea('day2-cloud-sea-forecast', '請根據北海道7月21日清晨的氣象條件（濃霧注意報、早晚多雲/霧白天轉晴、低溫高濕無風），判斷津別峠展望台出現雲海的機率高低，並提供簡要的說明。請帶點幽默感，像是給天氣報馬仔。')">AI 為您決策：雲海機率判</button>
-                        <div id="day2-cloud-sea-forecast-response" class="llm-response hidden"></div>
+                    <div class="ai-prompt-section" id="day5-ai-section">
+                        <label for="day5-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <select id="day5-ai-select">
+                            <option value="">請選擇想知道的內容...</option>
+                            <option value="請用幽默的口吻，簡要解說北海道大雪富良野景觀道（國道237號）的地理特色、形成故事，以及沿途的標誌性景觀背後的人文或自然故事。">大雪富良野景觀道的私房景點</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道富良野森林精靈露臺的「Ningle」（小精靈）故事起源，以及這個地方與自然、藝術的連結。">森林精靈露臺的夢幻傳說</option>
+                            <option value="請用幽默的口吻，推薦富良野地區適合家庭用餐的特色餐廳，並介紹當地必嚐的起司或葡萄酒相關美食。">富良野美食：不止薰衣草！</option>
+                        </select>
+                        <button class="button" onclick="callAIBot('day5-ai-section')">發問！</button>
+                        <div id="day5-ai-section-response" class="llm-response hidden"></div>
                     </div>
-                </div>
-                <div class="ai-prompt-section" id="day2-ai-section">
-                    <label for="day2-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <select id="day2-ai-select">
-                        <option value="">請選擇想知道的內容...</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道內帶高原牧場的歷史和獨特之處，以及推薦的乳製品。">內帶高原牧場的牛牛故事</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道屈斜路湖砂湯的獨特之處和趣味體驗。">屈斜路湖砂湯的秘密</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道硫磺山的地理特色和安全觀賞小貼士。">硫磺山的熱情物語</option>
-                        <option value="請用幽默的口吻，介紹屈斜路湖周邊適合家庭的夜間活動，例如觀星。">屈斜路湖畔的星空物語</option>
-                    </select>
-                    <button class="button" onclick="callAIBot('day2-ai-section')">發問！</button>
-                    <div id="day2-ai-section-response" class="llm-response hidden"></div>
                 </div>
             </div>
-        </div>
 
-        <!-- Day 3 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day3">
-                <div class="road-info">
-                    <span>🛣️ 路況：順暢</span>
+            <!-- Day 6 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day6">
+                    <div class="road-info">
+                        <span>🛣️ 路況：順暢</span>
+                        <span class="header-time-info">退房：10:00</span>
+                        <span class="header-time-info">出發：10:30</span>
+                    </div>
+                    <span class="main-title">Day 6 (7月24日 | 週四) 花田與札幌還車</span>
+                    <div class="weather-info">
+                        <span>⛅ 多雲時晴</span>
+                    </div>
                 </div>
-                <span>Day 3 (7月21日 | 週一) 雲海日出、摩周湖與知床世界遺產</span>
-                <div class="weather-info">
-                    <span>☀️ 晴朗</span>
+                <div id="day6" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day6-activity1">
+                            <span>💜 上午：富良野夏日花季 - 富田農場 (Farm Tomita) 與哈密瓜農場</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day6-activity1" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://www.funtime.com.tw/blog/wp-content/uploads/2018/07/881406248_d38142edec_b.jpg" alt="富田農場盛開的薰衣草田">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🌸</span><span class="activity-details">早餐後，沉浸在充滿活力的<span class="highlight">富良野夏日花季</span>中。參觀日本最著名的薰衣草農場之一——<span class="highlight">富田農場 (Farm Tomita)</span>（Map Code: 349 276 83477）。</span></p>
+                            <p class="text-guide">💡 導遊小知識：7月中旬至下旬是薰衣草盛開的高峰期，將整個山丘染成壯觀的紫色地毯，空氣中瀰漫著淡淡的薰衣草香。富田農場的迎賓建築「花人之捨」在7月至8月的營業時間為08:30至18:00，農場本身24小時可入園，並且免費入場。這裡不僅有廣闊的薰衣草田，還有多種花卉組成的彩色花田，如彩虹般絢麗，是拍照留念的絕佳地點。務必品嚐著名的薰衣草冰淇淋，口感清新，風味獨特，是夏季消暑的好選擇！</p>
+                            <p class="activity-line"><span class="list-item-icon">🍈</span><span class="activity-details">富田農場逛完後，步行前往<span class="highlight">富田哈密瓜農場</span>（Map Code: 349 276 888）。這裡以哈密瓜霜淇淋、哈密瓜菠蘿麵包和南瓜布丁等甜點聞名。營業時間通常在6月至9月，09:00至17:00，具體時間會隨產季變動。預估停留時間約為45分鐘。</span></p>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header" data-target="day6-activity2">
+                            <span>🍽️ 午餐：富良野美食與六花亭點心</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day6-activity2" class="sub-accordion-content">
+                            <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">午餐：前往富良野的<span class="highlight">Teppan Okonomiyaki Masaya</span> (MAP CODE: 349 032 004*43) 享用。</span></p>
+                            <p class="text-guide">💡 導遊小知識：Teppan Okonomiyaki Masaya 是一家提供鐵板燒和大阪燒的餐廳，以新鮮食材和美味的烹調方式聞名，是富良野地區受歡迎的午餐選擇。</p>
+                            <p class="activity-line"><span class="list-item-icon">🍰</span><span class="activity-details">午餐後，可考慮前往<span class="highlight">富良野六花亭 (カンパーナ六花亭)</span> (Map Code: 550 833 42555) 吃點心買伴手禮。這家店位於富良野市清水山，距離JR富良野車站約10分鐘車程。營業時間為10:00至16:30（喫茶室最後點餐時間為16:00）。富良野六花亭坐落於小山丘上，可欣賞到十勝岳連峰和葡萄園的廣闊景色。這裡提供富良野限定的甜點，如「富良野あんころ」（青豌豆麻糬）和新鮮現烤的「ふらの餅」。喫茶室也提供輕食如「智宏風ハヤシライス」。預估停留時間約為1小時。</span></p>
+                            <!-- Day 6 上午晚些時候/午餐 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day6-biei-select">
+                                    <span>🛍️ 購物資訊：美瑛選果</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day6-biei-select" class="mini-accordion-content">
+                                    <p><strong>美瑛選果：</strong> 地址：美瑛町大町2丁目。營業時間：09:00-17:00。推薦：美瑛產新鮮蔬菜、水果、美瑛牛奶麵包。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day6-activity3">
+                            <span>🏙️ 下午：自駕前往札幌與還車 / 傍晚：入住札幌飯店與晚餐</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day6-activity3" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://d27h7u7rtwbie8.cloudfront.net/2018/07/0721sapporomaturifb.jpg" alt="札幌市區的現代建築與街道">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">從富良野/美瑛開始駕車前往札幌。預計車程約為2小時至2小時25分鐘。</span></p>
+                            <h4 class="font-semibold text-red-600 mb-2">⚠️ 重要提示：札幌還車時間</h4>
+                            <p class="activity-line"><span class="list-item-icon">🏨</span><span class="font-bold">傍晚：</span><span class="activity-details">抵達札幌後，先前往已確認的住宿——<span class="highlight">札幌中島公園普樂美雅酒店</span>（Map Code: 9 462 38100）辦理入住。酒店位於市中心，交通便利。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day6_Sapporo_Premier_Hotel.pdf (Google Drive)</a>
+                            <p class="activity-line"><span class="list-item-icon">🔑</span><span class="activity-details">辦理入住後，再前往您的租車公司 <span class="highlight">Times Car Rental 札幌市鐘樓前店</span>歸還租賃車輛（Map Code: 9 523 24336）。最晚營業至晚上6點。這標誌著從廣闊自駕探索到城市活動模式的轉變。</span></p>
+                            <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day6_Sapporo_Car_Return_Times.pdf (Google Drive)</a>
+                            <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">晚餐：<span class="highlight">旭川 成吉思汗 大黒屋 察縨壱號店（札幌1号店）</span> (已預定時間：19:30，Google Maps連結：<a href="https://maps.app.goo.gl/8Xs1hSXBN9ryDiHa9" target="_blank">點此前往</a>)。推薦菜品：上等肉（必點，肉質軟嫩）、帶骨小羔羊肉（數量限定）、韓式泡菜、鱈魚內臟。預估用餐時間約1.5至2小時。</span></p>
+                            <p class="text-guide">📝 行程規劃說明：此規劃將行程策略性地分為自駕探索（廣闊的道東與道中地區）和城市活動（札幌與小樽）兩部分。在7月25日至27日節慶高峰期間，札幌市區的交通和停車可能充滿挑戰且壓力較大。透過歸還車輛，家庭可以享受札幌便利的大眾運輸和步行友善的環境，避免市區駕駛的壓力與高昂的停車費用，從而提升城市體驗的「悠哉」感受。</p>
+                            <!-- Day 6 下午 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day6-sapporo-station">
+                                    <span>🛍️ 購物資訊：札幌車站周邊百貨</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day6-sapporo-station" class="mini-accordion-content">
+                                    <p><strong>推薦：</strong> 大丸百貨、札幌Stellar Place，可購買流行服飾、化妝品、北海道限定零食。</p>
+                                    <p><strong>DAIMARU大丸百貨：</strong> 位於車站西側，B1樓層設有超市，可購買六花亭、北菓樓、札幌農學校等知名伴手禮，以及豐富的生鮮熟食。8樓設有寶可夢中心。營業時間為10:00-20:00 (商場)。</p>
+                                    <p><strong>STELLAR PLACE：</strong> 位於車站南側，頂樓為JR TOWER展望台。B1-6F為商場，6F設有美食街，有迴轉壽司根室花丸、湯咖哩天馬等名店。營業時間為10:00-21:00 (商場)。</p>
+                                    <p><strong>APIA地下街：</strong> 完全位於地下，直接連接JR及地鐵閘口，分為WEST和CENTER區，提供服飾、美妝、雜貨、書店及餐飲。營業時間為10:00-21:00 (商場)。</p>
+                                    <p><strong>Paseo：</strong> 橫跨札幌車站站內及東西兩側，B1-1F為商場。WEST區有咖啡廳和餐廳，CENTER區有北海道四季彩館伴手禮店，EAST區則有服飾、藥妝店ainz & tulpe等。營業時間為10:00-21:00 (商場)。</p>
+                                    <p><strong>Bic Camera 札幌店：</strong> 已於2023年9月1日遷至札幌東急百貨店的5樓和6樓，營業時間10:00-20:00。提供家電、相機、智慧手錶、美容健康家電、藥品、酒類等商品，並提供免稅服務。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-prompt-section" id="day6-ai-section">
+                        <label for="day6-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <select id="day6-ai-select">
+                            <option value="">請選擇想知道的內容...</option>
+                            <option value="請用幽默的口吻，提供一些在北海道富良野花田（例如富田農場）和美瑛雲霄飛車之路拍攝美麗照片的實用技巧和構圖建議。請提供至少3個技巧。">花田美照秘訣</option>
+                            <option value="請用幽默的口吻，簡要介紹美瑛的「拼布之路」和「超廣角之路」的特色，以及拍照的絕佳時機。">美瑛拼布之路的魅力</option>
+                            <option value="請用幽默的口吻，提供一些從富良野/美瑛前往札幌後，如何高效利用大眾交通工具並體驗市區樂趣的建議。">札幌城市漫遊小撇步</option>
+                        </select>
+                        <button class="button" onclick="callAIBot('day6-ai-section')">發問！</button>
+                        <div id="day6-ai-section-response" class="llm-response hidden"></div>
+                    </div>
                 </div>
             </div>
-            <div id="day3" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day3-activity1">
-                        <span>🌅 極早清晨：津別峠展望台雲海觀賞與飯店早餐</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day3-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.visit-hokkaido.jp/lsc/upfile/articleDetail/0000/1792/1792_1_m.jpg" alt="津別峠展望台的雲海日出景觀">
-                        </div>
-                        <p class="activity-line"><span class="activity-time">⏰ 03:30：</span><span class="activity-details">從屈斜路湖王子大飯店出發（Map Code: 927 186 630*00）。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">03:30 - 04:00：</span><span class="activity-details">駕車前往<span class="highlight">津別峠展望台</span>（約30分鐘車程，Map Code: 927 131 526*74）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：津別峠展望台海拔947公尺，是觀賞屈斜路湖雲海的頂級地點之一，與美幌峠齊名，且距離屈斜路湖王子大飯店更近。7月是觀賞雲海的黃金時期。在日出時分（7月21日日出約4:14）觀賞壯麗的雲海，您會看到無邊無際的雲海覆蓋著屈斜路湖，隨著太陽緩緩升起，雲層被染上神秘的色彩，形成一場由雲與光交織而成的視覺盛宴。清晨山頂氣溫較低，務必備足保暖衣物。</p>
-                        <p class="activity-line"><span class="list-item-icon">🍳</span><span class="activity-time">06:00 - 07:00：</span><span class="activity-details">觀賞結束後，駕車返回**屈斜路湖王子大飯店**，享用飯店提供的豐盛早餐。結束早起的雲海行程後，能在飯店舒適地用餐，為接下來的行程補充體力，是非常棒的安排！</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Kussharo_Prince_Hotel_Breakfast.pdf (Google Drive)</a>
-                    </div>
-                </div>
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="day3-activity2">
-                        <span>💧 上午：摩周湖與知床沿途風光</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day3-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://intranet.travel4u.com.tw/eWeb_t4u/IMGDB/002294/002297/002347/00070252.JPG" alt="摩周湖的清澈湖水與周圍山景">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🗺️</span><span class="activity-time">08:00：</span><span class="activity-details">從屈斜路湖王子大飯店出發，辦理退房手續。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">08:00 - 08:30：</span><span class="activity-details">駕車前往<span class="highlight">摩周湖第一展望台</span>（約30分鐘車程，Map Code: 927 057 568*68）。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🏞️</span><span class="activity-time">08:30 - 09:30：</span><span class="activity-details">觀賞摩周湖美景（約1小時）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：摩周湖被譽為「摩周藍」，以其世界上數一數二的透明度而聞名，湖水呈現出令人驚嘆的深藍色調，彷彿一顆藍寶石鑲嵌在群山之中。摩周湖第一展望台24小時開放，讓您能在最佳光線下欣賞這片「神之湖」。即使沒有雲海，清晨的湖面也極為靜謐美麗，給人一種神秘而莊嚴的感覺。</p>
-                        <div class="image-container">
-                            <img src="https://www.visit-hokkaido.jp/lsc/upfile/articleDetail/0000/0528/528_1_m.jpg" alt="北海道天堂之路筆直延伸的公路">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🛣️</span><span class="activity-time">09:30 - 11:30：</span><span class="activity-details">從摩周湖出發，前往知床宇登呂地區。這段車程約為2小時。途中，您將順路經過<span class="highlight">天堂之路</span>（位於網走附近，Map Code: 304 381 216*77）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：天堂之路因其筆直無盡的道路，彷彿直達天際而得名。這是一條長達28.1公里的直線道路，在視覺上給人一種衝向天邊的錯覺，是北海道自駕之旅的標誌性景觀之一。您可以將車停在路邊的安全區域，拍下令人驚嘆的照片，感受北海道的廣闊與壯麗。這是一次快速而令人印象深刻的駕車體驗。</p>
-                        <div class="image-container">
-                            <img src="https://blog.tripbaa.com/wp-content/uploads/2018/04/1-2-1024x683.jpg" alt="知床雙美瀑布的壯觀水流">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">💦</span><span class="activity-time">11:30 - 12:00：</span><span class="activity-details">隨後，您將順路經過<span class="highlight">雙美瀑布 (Oshinkoshin Falls)</span> (Map Code: 797 561 247*06) 和<span class="highlight">Puyuni岬 (Puyuni Cape)</span> (Map Code: 797 561 411*44)，進行短暫停留。</span></p>
-                        <p class="text-guide">💡 導遊小知識：雙美瀑布是知床地區最大的瀑布，高達70公尺，因水流在途中分為兩股而得名「雙美瀑布」，並入選「日本瀑布百選」。從觀景台可近距離感受瀑布的磅礴氣勢，並俯瞰鄂霍次克海的壯闊景色。Puyuni岬則是「知床八景」之一，提供鄂霍次克海和知床連峰的絕佳視野點，也是欣賞海上落日的理想地點。</p>
-                    </div>
-                </div>
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day3-activity3">
-                        <span>🛥️ 午餐與下午：知床五湖與宇登呂漁港觀光船</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day3-activity3" class="sub-accordion-content">
-                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-time">12:00 - 13:00：</span><span class="activity-details">在知床宇登呂地區享用午餐（Map Code: 797 571 700*88）。您可以選擇當地特色的海鮮丼或簡餐。</span></p>
-                        <div class="image-container">
-                            <img src="https://imageproxy.pixnet.cc/imgproxy?url=https://pic.pimg.tw/paulchi543/1688501198-863760503-g_l.jpg" alt="知床五湖高架木棧道上的遊客與湖景">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🚶‍♀️</span><span class="activity-time">13:00 - 14:00：</span><span class="activity-details">前往<span class="highlight">知床五湖（高架木棧道）</span>進行遊覽（約1小時，Map Code: 797 571 183*00）。**請注意：此遊覽時間為壓縮時間，以銜接觀光船。**</span></p>
-                        <p class="text-guide">💡 導遊小知識：知床五湖是聯合國教科文組織世界遺產知床半島的核心景點。高架木棧道是一條1.6公里的往返步道，設計為無障礙設施，非常適合輪椅和嬰兒車，對4歲的幼童來說是理想的選擇。它全年免費開放，並設有電子圍欄以保護遊客免受棕熊的影響，確保安全無憂的體驗。由於下午時間有限，建議您專注於高架木棧道，以便為後續的觀光船行程預留充足時間。知床世界遺產中心（Map Code: 797 571 777*60）位於附近，如果時間充裕，可以快速瀏覽，了解知床的自然歷史與生態。</p>
-                        <div class="image-container">
-                            <img src="https://lantoko.com/wp-content/uploads/2023/06/utorosummer4.jpg" alt="宇登呂港的鯨豚觀察觀光船">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🛥️</span><span class="activity-time">14:30 - 14:40：</span><span class="activity-details">前往<span class="highlight">宇登呂（ウトロ）漁港</span>（Map Code: 797 571 700*88），準備搭乘**自然風景＋鯨豚觀察觀光船**。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">⏱️</span><span class="activity-time">14:40 - 16:55：</span><span class="activity-details">搭乘觀光船（船程約2小時15分鐘）。請務必提前預約此船班，尤其在7月旺季。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Shiretoko_Cruise_PM_Ticket.pdf (Google Drive)</a>
-                        <p class="text-guide">💡 導遊小知識：從宇登呂港出發的觀光船，將帶您沿著知床半島崎嶇的海岸線航行，欣賞壯麗的海崖、瀑布，並有機會觀察到棲息在知床的野生棕熊、海鳥，甚至幸運的話，還能邂逅鯨魚和海豚。這是一次從海上欣賞世界遺產獨特風光的絕佳機會。</p>
 
-                        <h4 class="font-semibold mb-2 mt-4">🏨 晚上：入住知床第一飯店</h4>
-                        <p class="activity-line"><span class="list-item-icon">😴</span><span class="activity-time">約 16:55：</span><span class="activity-details">觀光船結束後，前往已確認的住宿——<span class="highlight">知床第一飯店</span>（Map Code: 797 570 000*00）辦理入住。這家酒店以其舒適的設施和溫泉聞名，是結束一天充實行程的完美歸宿。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day3_Shiretoko_Daiichi_Hotel.pdf (Google Drive)</a>
+            <!-- Day 7 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day7">
+                    <div class="road-info">
+                        <span>🛣️ 路況：順暢</span>
+                        <!-- 只有當有值時才顯示 -->
+                        <span class="header-time-info">退房：N/A</span>
+                        <span class="header-time-info">出發：N/A</span>
+                    </div>
+                    <span class="main-title">Day 7 (7月25日 | 週五) 札幌節慶盛典</span>
+                    <div class="weather-info">
+                        <span>☀️ 晴朗</span>
                     </div>
                 </div>
-                <div class="ai-prompt-section" id="day3-ai-section">
-                    <label for="day3-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <select id="day3-ai-select">
-                        <option value="">請選擇想知道的內容...</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道津別峠展望台觀賞雲海的獨特體驗和最佳時機。">津別峠雲海的浪漫邂逅</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道摩周湖的神秘起源或一個有趣的傳說，以及它被稱為「霧之摩周湖」的原因。">摩周湖：藍寶石與霧的交響曲</option>
-                        <option value="請用幽默的口吻，簡要解說北海道知床宇登呂漁港觀光船沿途可能看到的美景，以及背後的小故事，包括鯨豚種類和觀賞秘訣。">出海，與知床海豚鯨魚共舞！</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道知床五湖的特色，以及適合親子遊的理由，包括動植物觀察和安全措施。">知床五湖：小探險家的樂園</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道天堂之路的視覺奇觀和拍照技巧，讓照片充滿趣意。">天堂之路：拍出大片的神奇視角</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道雙美瀑布和Puyuni岬的自然特色，以及它們作為知床八景的魅力。">雙美瀑布與Puyuni岬：海岸線上的驚嘆號</option>
-                    </select>
-                    <button class="button" onclick="callAIBot('day3-ai-section')">發問！</button>
-                    <div id="day3-ai-section-response" class="llm-response hidden"></div>
+                <div id="day7" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day7-activity1">
+                            <span>🍻 上午/下午：札幌夏日祭與大通啤酒花園</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day7-activity1" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://home.sapporo.kokosil.net/wp-content/uploads/2019/07/image34632x13_main.jpg" alt="札幌大通公園的啤酒花園活動">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🎉</span><span class="activity-details">早餐後，沉浸在充滿活力的<span class="highlight">札幌夏日祭</span>氛圍中。該節慶從7月18日持續至8月16日。前往大通公園，體驗**札幌大通啤酒花園**，其開放時間為7月18日至8月13日。</span></p>
+                            <p class="text-guide">💡 導遊小知識：札幌大通啤酒花園是日本最大的戶外啤酒花園，綿延1公里，設置約13,000個座位。您可以在此品嚐各種當地和國際啤酒，並享用美味的北海道美食，如烤玉米、炸雞等。若想獲得更輕鬆的體驗，尤其是有孩童同行，建議在平日白天前往，此時座位較寬裕。</p>
+                            <!-- Day 7 上午/下午 餐飲與購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day7-food-shopping-morning">
+                                    <span>🍽️ 🛍️ 餐飲與購物推薦</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day7-food-shopping-morning" class="mini-accordion-content">
+                                    <p><strong>二条市場 (午餐/晚餐)：</strong> 地址：札幌市中央區南3條東1～東2丁目。營業時間：市場07:00-18:00，飲食店街06:00-21:00。推薦：海鮮丼、帝王蟹、海膽、鮭魚卵。</p>
+                                    <p><strong>湯咖哩GARAKU (午餐/晚餐)：</strong> 地址：札幌市中央區南2條西2丁目6-1おくむらビルB1北側入口。營業時間：11:30-15:00 (11點可抽號碼牌)，17:00-20:30 (16:30可抽號碼牌)。推薦：燉豬肉咖哩、炸花椰菜。</p>
+                                    <p><strong>札幌藥妝 (Satudora) 北8條旗艦店：</strong> 藥妝品項齊全，還販售零食、飲料、熟食便當，種類豐富媲美超市。提供免稅服務，並配合優惠券可享最高「免稅+7%」折扣。札幌車站旁的STELLAR PLACE店也有分店。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day7-activity2">
+                            <span>🎆 晚上：札幌煙火季「豊平川(道新・UHB)花火大会」</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day7-activity2" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://rid-sapporo.com/cms/cms-content/uploads/2023/07/%E8%8A%B1%E7%81%AB%E2%91%A2.jpg" alt="豐平川花火大會的璀璨煙火">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">✨</span><span class="activity-details">準備迎接<span class="highlight">札幌煙火季「豊平川(道新・UHB)花火大会」</span>的壯觀夜晚！這場盛大活動已確認將於7月25日（週五）的19:40至20:20舉行，地點在豐平川南大橋至幌平橋間。建議提早抵達以確保在河岸邊找到良好的觀賞位置。</span></p>
+                            <p class="text-guide">💡 導遊小知識：豐平川花火大會是札幌夏季的代表性活動之一，每年吸引大量市民和遊客觀賞。在河畔欣賞璀璨的煙火在夜空中綻放，將是您北海道之旅的難忘高潮。</p>
+                            <!-- Day 7 晚上 餐飲與購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day7-food-shopping-night">
+                                    <span>🍽️ 🛍️ 餐飲與購物推薦</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day7-food-shopping-night" class="mini-accordion-content">
+                                    <p><strong>根室花丸迴轉壽司 (午餐/晚餐)：</strong> 地址：札幌市中央區北5條西2丁目ステラプレイス6F (JR Tower Stellar Place店)。營業時間：11:00-23:00 (最後點餐22:15)。推薦：生秋刀魚壽司、炙燒比目魚鰭邊握壽司、雙重干貝握壽司。</p>
+                                    <p><strong>狸小路商店街藥妝店：</strong> 狸小路是札幌藥妝店的超級戰區，大國藥妝、鶴羽藥妝、SUNDRUG、MEGA唐吉訶德、KoKuMiN國民藥妝、松本清等知名連鎖藥妝店齊聚一堂，價格競爭激烈。唐吉訶德更是24小時營業，方便夜間購物。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-prompt-section" id="day7-ai-section">
+                        <label for="day7-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <select id="day7-ai-select">
+                            <option value="">請選擇想知道的內容...</option>
+                            <option value="請用幽默的口吻，提供一些在北海道札幌大通啤酒花園品酒的實用建議，例如如何選擇啤酒、搭配食物、享受氛圍等，讓品酒體驗更過癮。">啤酒花園品酒攻略</option>
+                            <option value="請用幽默的口吻，簡要介紹札幌夏日祭的由來和必看亮點。">札幌夏日祭狂歡</option>
+                            <option value="請用幽默的口吻，介紹札幌豐平川花火大會的觀賞最佳位置和周邊小吃建議。">花火大會觀賞秘笈</option>
+                        </select>
+                        <button class="button" onclick="callAIBot('day7-ai-section')">發問！</button>
+                        <div id="day7-ai-section-response" class="llm-response hidden"></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Day 4 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day4">
-                <div class="road-info">
-                    <span>🛣️ 路況：多雲</span>
+            <!-- Day 8 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day8">
+                    <div class="road-info">
+                        <span>🛣️ 路況：順暢</span>
+                        <span class="header-time-info">退房：N/A</span>
+                        <span class="header-time-info">出發：N/A</span>
+                    </div>
+                    <span class="main-title">Day 8 (7月26日 | 週六) 海岸魅力與都市樂趣</span>
+                    <div class="weather-info">
+                        <span>🌦️ 局部陣雨</span>
+                    </div>
                 </div>
-                <span>Day 4 (7月22日 | 週二) 道東奇觀與壯麗山脈</span>
-                <div class="weather-info">
-                    <span>☀️ 晴朗</span>
+                <div id="day8" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day8-activity1">
+                            <span>🏮 上午/下午：小樽潮祭與運河風情</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day8-activity1" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://www.bubu-jp.com/wp-content/uploads/2025/01/316af23fa89c1a69fd735c25e7c9665a.jpeg" alt="小樽運河的瓦斯燈與運河景觀">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">早餐後，前往迷人的港口城市小樽進行一日遊，從札幌出發僅需約45分鐘車程。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">🏮</span><span class="activity-details">這天的行程完美配合<span class="highlight">小樽潮祭</span>，該節慶從7月25日持續至7月27日。其中，7月26日（週六）的「潮練り込み」活動時間為13:00至20:30。這是一個傳統的遊行活動，旅客可以體驗當地的文化氛圍。</span></p>
+                            <p class="text-guide">💡 導遊小知識：在7月26日（週六），您可以觀賞熱鬧的「潮練り込み」（遊行），這項主要遊行活動從13:00持續至20:30，充分展現了節慶的精神，您會看到人們穿著傳統服飾，伴隨著音樂和舞蹈，沿街遊行，熱鬧非凡。這是一個深入了解小樽當地文化和參與當地節慶的絕佳機會。</p>
+                            <p class="activity-line"><span class="list-item-icon">🛶</span><span class="activity-details">探索風景如畫的<span class="highlight">小樽運河</span>和<span class="highlight">堺町通的迷人商店街</span>。小樽運河是小樽的標誌性景點，沿岸的紅磚倉庫訴說著昔日港口城市的繁華。堺町通則匯聚了玻璃工藝品店（如北一硝子館）、音樂盒堂（如小樽音樂盒堂本館）和各種甜點店（如LeTAO），是購物和尋寶的好地方，非常適合一家大小慢慢逛。</span></p>
+                            <!-- Day 8 上午/下午 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day8-otaru-sakaimachi">
+                                    <span>🛍️ 購物資訊：小樽堺町通商店街</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day8-otaru-sakaimachi" class="mini-accordion-content">
+                                    <p><strong>推薦：</strong> 北一硝子館（玻璃工藝品）、小樽音樂盒堂（音樂盒）、LeTAO（甜點）。</p>
+                                    <p><strong>小樽音樂盒堂主館：</strong> 日本國內規模最大的音樂盒專賣店，擁有超過2萬5千件商品，並設有古董博物館和定時演奏會。</p>
+                                    <p><strong>北一硝子三號館：</strong> 1901年創業的老店，販售日式、西式、鄉村風的玻璃產品，以及刻花玻璃和日式裝飾品，種類豐富。</p>
+                                    <p><strong>太郎魷魚絲：</strong> 小樽當地熱門的魷魚絲專賣店，無添加防腐劑，是來小樽大推的伴手禮。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header" data-target="day8-activity2">
+                            <span>🦀 午餐/晚餐：海鮮美食饗宴（含帝王蟹）</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day8-activity2" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://auntie.tw/wp-content/uploads/2018/02/20241002sjl91.jpg" alt="小樽三角市場新鮮烹製的帝王蟹">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">在小樽享用一頓豐盛的<span class="highlight">海鮮美食饗宴</span>，特別是您期待的<span class="highlight">帝王蟹</span>。小樽以其新鮮海產聞名，有許多海鮮餐廳可供選擇。推薦：<span class="highlight">三角市場-武田鮮魚店</span> (地址：北海道小樽市稲穂3-10-16，營業時間：07:00–16:00)。推薦菜品：帝王蟹、海鮮丼、各類定食、海膽丼。</span></p>
+                            <p class="text-guide">💡 導遊小知識：小樽的<span class="highlight">三角市場</span>以其新鮮的海鮮和帝王蟹而受到高度推薦，價格通常比札幌更為優惠。</p>
+                            <p class="activity-line"><span class="list-item-icon">🦀</span><span class="activity-details"><span class="font-bold">其他小樽午餐/晚餐推薦：</span><br>
+                                <ul class="bullet-list ml-6">
+                                    <li><span class="list-item-icon">🍣</span> 小樽壽司屋通：聚集了多家壽司名店，如「小樽福鮨」和「小樽すし耕」。</li>
+                                    <li><span class="list-item-icon">🍗</span> 若雞時代NARUTO 本店：以炸半雞聞名，外酥內軟多汁。</li>
+                                </ul>
+                                建議提早抵達市場，以避開最擁擠的人潮並確保選到最新鮮的海鮮，享受親自挑選活體螃蟹並現場烹調的樂趣。
+                            </span></p>
+                        </div>
+                    </div>
+
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day8-activity3">
+                            <span>🛍️ 晚上：返回札幌與都會探索</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day8-activity3" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/500000/500129-sapporo-and-vicinity.jpg" alt="札幌市區的夜晚燈光與建築">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🌃</span><span class="activity-details">返回札幌，繼續<span class="highlight">札幌都會探索與購物</span>。享受市中心的熱鬧氛圍，您可以在札幌車站周邊的大型百貨公司（如大丸百貨、札幌Stellar Place）進行購物，或是前往充滿活力的狸小路商店街，這裡有各式各樣的藥妝店、紀念品店和餐廳，是購買伴手禮的好地方。</span></p>
+                            <p class="text-guide">📝 導遊小知識：札幌的夜景也值得一看，如果時間充裕，可以考慮前往札幌電視塔觀景台，俯瞰大通公園和札幌市區的璀璨夜景。</p>
+                            <!-- Day 8 晚上 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day8-sapporo-tanukikoji">
+                                    <span>🛍️ 購物資訊：狸小路商店街</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day8-sapporo-tanukikoji" class="mini-accordion-content">
+                                    <p><strong>推薦：</strong> 藥妝店、紀念品店、餐廳，是購買伴手禮的好地方。</p>
+                                    <p><strong>狸小路商店街藥妝店：</strong> 狸小路是札幌藥妝店的超級戰區，大國藥妝、鶴羽藥妝、SUNDRUG、MEGA唐吉訶德、KoKuMiN國民藥妝、松本清等知名連鎖藥妝店齊聚一堂，價格競爭激烈。唐吉訶德更是24小時營業，方便夜間購物。</p>
+                                    <p><strong>SNOW CHEESE：</strong> 需要提早排隊的熱門品牌，深受觀光客和當地人的喜愛。推薦SNOW WHITE CHEESE和SNOW GOLD CHEESE。SNOW WHITE CHEESE可常溫保存90天。主要在札幌大丸百貨限定販售。</p>
+                                    <p><strong>電視爸爸 (札幌電視塔吉祥物)：</strong> 以札幌電視塔為設計概念，紅身體綠肚兜，表情慵懶，有玩偶、文具、聯名明信片等周邊商品。主要在札幌電視塔3樓的SOUVENIR SHOP（免稅店）購得。</p>
+                                    <p><strong>哈密瓜熊 (夕張市吉祥物)：</strong> 狂野外表，真實熊臉手腳，甚至有鮭魚貫穿身體的衝擊性設計，深受男性喜愛，適合送給懂得時尚的朋友。</p>
+                                    <p><strong>銀喉長尾山雀 (雪妖精)：：</strong> 北海道特有的小鳥，冬天蓬鬆圓滾可愛，其周邊商品已成為北海道伴手禮的流行趨勢。</p>
+                                    <p><strong>木雕熊風格玩偶 (咬著鮭魚的熊)：</strong> 北海道傳統工藝木雕熊的柔軟蓬鬆版，更輕巧便於攜帶，且價格親民。</p>
+                                    <p><strong>彈出來的吉祥物鑰匙圈：</strong> 有棕熊、狐狸等10多種北海道動物設計，捏一下身體眼睛會彈出，趣味性十足。</p>
+                                    <p><strong>北海道觀光景點磁鐵：：</strong> 印有札幌、函館、小樽、富良野等地圖案，是受外國遊客歡迎的收集品。</p>
+                                    <p><strong>札幌大決戰TV塔T恤：</strong> 熊襲擊札幌觀光地的衝擊性圖案，是SOUVENIR SHOP的原創商品，顏色與尺寸選擇廣泛。</p>
+                                    <p><strong>Hello Kitty當地限定聯名商品：</strong> 北海道是日本全國Hello Kitty商品最豐富的地區之一，可尋找與當地特產或觀光景點聯名的款式。</p>
+                                    <p><strong>水晶球/雪花球：</strong> 將札幌電視塔等風景保存其中，顛倒後亮片如雪花般降落，可將旅行回憶裝飾在房間。</p>
+                                    <p><strong>家電產品：</strong></p>
+                                    <ul class="bullet-list ml-4">
+                                        <li><strong>吹風機：</strong> Panasonic 奈米水離子吹風機 (EH-NA0J)、Dyson 吹風機 (Supersonic HD08ULFBBNENT)。在日本購買通常遠低於台灣價格。</li>
+                                        <li><strong>電子鍋 (象印)：</strong> 日本電子鍋能將米飯煮得香Q可口，高端型號價差大。</li>
+                                        <li><strong>其他家電：</strong> 空氣清淨機、水波爐、Bruno 電烤盤。</li>
+                                    </ul>
+                                    <p><strong>美妝保養與藥品：</strong></p>
+                                    <ul class="bullet-list ml-4">
+                                        <li><strong>龍角散清喉顆粒：</strong> 護嗓潤喉常備好物。</li>
+                                        <li><strong>北海道限定LuLuLun面膜：</strong> 融入北海道產天然成分，獨特香氣。</li>
+                                        <li><strong>馬油：</strong> 高保濕護膚品，秋冬必備。</li>
+                                        <li><strong>FANCL卸妝油：</strong> 無添加溫和配方，適合敏感肌膚。</li>
+                                        <li><strong>Wellness Navi保健品：</strong> 藥妝店獨家販售，多種健康需求產品。</li>
+                                        <li><strong>50之惠育髮劑：</strong> 樂敦旗下，促進頭髮生長。</li>
+                                        <li><strong>常見藥品：</strong> EVE止痛藥、WAKAMOTO若元錠、欣表飛鳴S錠、百保能感冒藥等。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-prompt-section" id="day8-ai-section">
+                        <label for="day8-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <select id="day8-ai-select">
+                            <option value="">請選擇想知道的內容...</option>
+                            <option value="請用幽默的口吻，簡要介紹北海道小樽潮祭中「潮練り込み」（遊行）這項活動的由來、意義，以及它如何展現小樽的港口文化與居民精神。">小樽潮祭小百科</option>
+                            <option value="除了帝王蟹，請用幽默的口吻，推薦北海道小樽三角市場或附近可以品嚐到的其他新鮮海鮮種類和料理方式，簡要說明其特色。">小樽海鮮驚喜</option>
+                            <option value="請用幽默的口吻，簡要介紹小樽運河的歷史故事和夜間氛圍。">小樽運河的浪漫傳說</option>
+                            <option value="請用幽默的口吻，推薦札幌夜晚的休閒活動或特色酒吧，讓大人們可以放鬆。">札幌夜生活指南</option>
+                        </select>
+                        <button class="button" onclick="callAIBot('day8-ai-section')">發問！</button>
+                        <div id="day8-ai-section-response" class="llm-response hidden"></div>
+                    </div>
                 </div>
             </div>
-            <div id="day4" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day4-activity1">
-                        <span>🧊 上午：鄂霍次克流冰館 (Okhotsk Ryuhyo Museum)</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day4-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://visit-abashiri.jp/assets_c/2022/12/pixta_74552322_L-thumb-2012xauto-673.jpeg" alt="鄂霍次克流冰館內部展示">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">⏰ 08:30 AM：</span><span class="activity-details">在飯店享用悠閒早餐後，從知床第一飯店（宇登呂）出發。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">08:30 AM - 09:40 AM：</span><span class="activity-details">駕車前往<span class="highlight">鄂霍次克流冰館</span>（約1小時10分鐘車程，Map Code: 304 693 421*55）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：鄂霍次克流冰館是一個展示流冰生態和文化的博物館。雖然7月沒有流冰，但您可以在零下15度的流冰體驗室中感受真實流冰的冰冷，並觀看流冰的介紹影片，了解流冰生態系。對於小朋友來說，體驗冰冷和看到可愛的流冰天使（Clione）會是一個難忘的體驗。</p>
-                        <p class="activity-line"><span class="list-item-icon">🚶‍♀️</span><span class="activity-time">09:40 AM - 11:00 AM：</span><span class="activity-details">參觀流冰館（約1小時20分鐘）。</span></p>
-                    </div>
-                </div>
 
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="day4-activity2">
-                        <span>🦀 午餐：網走產地直送帝王蟹美食</span>
-                        <span>&#9660;</span>
+            <!-- Day 9 -->
+            <div class="accordion-item rounded-xl">
+                <div class="accordion-header rounded-t-xl" data-target="day9">
+                    <div class="road-info">
+                        <span>🛣️ 路況：順暢</span>
+                        <span class="header-time-info">退房：10:00</span>
+                        <span class="header-time-info">出發：10:30</span>
                     </div>
-                    <div id="day4-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.ohotsuku.com/img/item/aburagani.jpg" alt="網走產地直送新鮮帝王蟹">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-time">11:00 AM - 12:30 PM：</span><span class="activity-details">在網走享用豐盛的<span class="highlight">產地直送帝王蟹美食</span>。網走是鄂霍次克海的港口城市，海產新鮮是這裡的特色。</span></p>
-                        <p class="text-guide">💡 導遊小知識：在網走，您可以選擇前往**網走監獄博物館**附近的餐廳，或是網走車站周邊的海鮮市場餐廳。推薦例如**かに本陣 かにや** (Kani Honjin Kaniya)，專營螃蟹料理，可以品嚐到最新鮮的帝王蟹、毛蟹等，有煮、烤等多種烹調方式。享受這份來自大海的頂級鮮味，絕對是北海道美食之旅的一大亮點！</p>
+                    <span class="main-title">Day 9 (7月27日 | 週日) 告別北海道</span>
+                    <div class="weather-info">
+                        <span>☀️ 晴朗</span>
                     </div>
                 </div>
+                <div id="day9" class="accordion-content">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-t-lg" data-target="day9-activity1">
+                            <span>🎁 上午：札幌都會與購物（彈性時間）</span>
+                            <span>&#9660;</span>
+                        </div>
+                        <div id="day9-activity1" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://marukoblog.tw/wp-content/uploads/flickr/27868270307_d2307c6a06_c.jpg" alt="札幌的商店街與行人">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🛍️</span><span class="activity-details">在札幌享受一個彈性的上午。這是進行最後的<span class="highlight">札幌都會探索或購物</span>的理想時機，或許可以購買紀念品、補齊尚未購得的伴手禮，或重訪您喜愛的札幌景點。考量到下午需要前往機場，建議保持輕鬆的步調。</span></p>
+                            <p class="text-guide">📝 導遊小知識：雖然小樽潮祭的盛大煙火表演定於7月27日傍晚（20:00至20:35），但考量到這會使您的離境日過於匆忙且可能充滿壓力，尤其是有孩童同行並需要前往機場。鑑於「悠哉享受」的目標，建議優先觀賞7月25日的札幌煙火，並在7月26日專注於小樽的日間節慶活動。</p>
+                        </div>
+                    </div>
 
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="day4-activity3">
-                        <span>🍓 下午：YOKOYAMA Fruit Farm水果吃到飽與北狐狸牧場</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day4-activity3" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://japan-gastrotourism-and-trade.com/fruits/tw/wp-content/uploads/sites/4/2018/05/12585f76fd7238055551bd3535bc9c6f-800x600.jpg" alt="YOKOYAMA Fruit Farm的藍莓和李子">
+                    <div class="sub-accordion-item">
+                        <div class="sub-accordion-header rounded-b-lg" data-target="day9-activity2">
+                            <span>✈️ 下午：前往新千歲機場與啟程</span>
+                            <span>&#9660;</span>
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">12:30 PM - 01:00 PM：</span><span class="activity-details">從網走午餐地點駕車前往<span class="highlight">YOKOYAMA Fruit Farm</span>（約30分鐘車程，Map Code: 356 322 888*44）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：YOKOYAMA Fruit Farm提供當季水果現摘吃到飽的體驗！7月正是藍莓、李子和洋李的盛產期。想像一下，親手從樹上摘下最新鮮、最甜美的果實，直接品嚐，這對大人小孩來說都是無比的樂趣！讓您們在旅途中享受一場甜蜜的田園盛宴。</p>
-                        <p class="activity-line"><span class="list-item-icon">🍓</span><span class="activity-time">01:00 PM - 02:30 PM：</span><span class="activity-details">在YOKOYAMA Fruit Farm享受水果吃到飽（約1.5小時）。</span></p>
-                        <div class="image-container">
-                            <img src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2019/10/hokkaido_bokujyou_12.jpg" alt="北狐狸牧場的可愛狐狸">
+                        <div id="day9-activity2" class="sub-accordion-content">
+                            <div class="image-container">
+                                <img src="https://cdn.ftvnews.com.tw/manasystem/FileData/News/03419335-318e-43b0-b002-bf403c66041a.jpg" alt="新千歲機場的航站樓與登機口">
+                            </div>
+                            <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">約11:00：</span><span class="activity-details">從Premier Hotel Tsubaki Sapporo出發，前往新千歲機場。從札幌到新千歲機場的車程約為50-70分鐘。</span></p>
+                            <p class="activity-line"><span class="list-item-icon">✈️</span><span class="activity-details">啟程： 抵達新千歲機場後，辦理行李托運和離境手續。**您的航班為長榮航空165班次，預計13:00從新千歲機場起飛。**帶著北海道之旅的美好回憶踏上歸途。希望您們在這片美麗的土地上留下了珍貴的家庭時光！</span></p>
+                            <!-- Day 9 購物資訊 -->
+                            <div class="mini-accordion-item">
+                                <div class="mini-accordion-header" data-target="day9-shopping">
+                                    <span>🛍️ 購物資訊：新千歲機場最後衝刺</span>
+                                    <span>&#9660;</span>
+                                </div>
+                                <div id="day9-shopping" class="mini-accordion-content">
+                                    <p><strong>推薦：</strong> Royce' Chocolate World (巧克力)、白色戀人公園 (餅乾)、Calbee Plus (現炸薯條)、北海道限定伴手禮。</p>
+                                    <p><strong>新千歲機場：</strong> 不僅是北海道的門戶，更是旅客離開前進行最後購物衝刺的絕佳地點。機場內匯集了北海道各大知名伴手禮品牌，如六花亭、Royce'、白色戀人、薯條三兄弟、北菓樓、LeTAO等，許多商品都可在此一站購齊。此外，機場也提供免稅服務，方便國際旅客。</p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="activity-line"><span class="list-item-icon">🦊</span><span class="activity-time">02:30 PM - 03:45 PM：</span><span class="activity-details">從YOKOYAMA Fruit Farm駕車前往<span class="highlight">北狐狸牧場</span>（約1小時15分鐘車程，Map Code: 356 313 748*00）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：北狐狸牧場讓您在自然的環境中近距離觀察北海道的標誌性動物——蝦夷紅狐。這些可愛的狐狸在廣闊的園區內自由活動，是大人小孩都喜歡的景點。牧場夏季營業時間為9:00至17:00，最後入場時間為16:30。</p>
-                        <p class="activity-line"><span class="list-item-icon">🚶‍♀️</span><span class="activity-time">03:45 PM - 04:45 PM：</span><span class="activity-details">參觀北狐狸牧場（約1小時）。**請務必注意時間，牧場最後入場時間為16:30。**</span></p>
                     </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day4-activity4">
-                        <span>♨️ 下午晚些時候：前往層雲峽溫泉與入住</span>
-                        <span>&#9660;</span>
+                    <div class="ai-prompt-section" id="day9-ai-section">
+                        <label for="day9-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
+                        <span id="day9-ai-text-option">新千歲機場最後衝刺</span>
+                        <button class="button" onclick="callAIBot('day9-ai-section', '請用幽默的口吻，簡要介紹北海道新千歲機場的購物和餐飲特色，以及適合購買的伴手禮。')">發問！</button>
+                        <div id="day9-ai-section-response" class="llm-response hidden"></div>
                     </div>
-                    <div id="day4-activity4" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.tabirai.net/tabirai-uploader/img/0034748/s9_0034748.jpg" alt="層雲峽溫泉旅館的露天浴池">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">04:45 PM - 06:45 PM：</span><span class="activity-details">從北狐狸牧場出發，前往<span class="highlight">層雲峽溫泉</span>（約2小時車程，Map Code: 623 206 000*00）。</span></p>
-                        <p class="text-guide">⚠️ **重要提示：** 這一天行程雖然經過優化，但仍包含較長的駕駛時間（總駕駛時間約5小時15分鐘）。請務必預留充足的休息時間，並保持彈性，必要時可縮短部分景點的停留時間，以確保旅途舒適與安全。此路線不會經過「三國峠」和「松見大橋」，這兩個景點位於不同的國道上，納入行程會大幅繞路，增加疲勞。**</p>
-                        <p class="activity-line"><span class="list-item-icon">🏨</span><span class="activity-time">06:45 PM：</span><span class="activity-details">抵達已確認的住宿——<span class="highlight">層雲峽朝陽亭旅館</span>（Map Code: 623 206 000*00）。辦理入住手續後，稍作休息，從長途駕駛中恢復體力。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day4_Sounkyo_Choyotei_Hotel.pdf (Google Drive)</a>
-                        <p class="text-guide">♨️ 導遊小知識：層雲峽溫泉是大雪山國家公園內的著名溫泉鄉，以其豐富的泉量和周邊壯麗的峽谷景色聞名。這裡的溫泉屬於硫磺泉，對皮膚病和關節炎有益。泡湯不僅能舒緩旅途疲憊，也是體驗日本文化的重要一環，讓身心得到徹底的放鬆。</p>
-                    </div>
-                </div>
-                <div class="ai-prompt-section" id="day4-ai-section">
-                    <label for="day4-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <select id="day4-ai-select">
-                        <option value="">請選擇想知道的內容...</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道鄂霍次克流冰館的特色，以及夏季參觀的樂趣。">流冰館的冰雪奇緣</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道YOKOYAMA Fruit Farm的水果種類，以及採摘體驗的樂趣。">水果樂園的甜蜜誘惑</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道狐狸在日本文化和傳說中的地位和故事，特別是與狐狸仙相關的內容。">狐狸的小秘密</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道層雲峽溫泉名稱的由來與開拓史。">層雲峽名稱的由來與開拓史</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道層雲峽與愛努族的傳說。">層雲峽與愛努族傳說</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道層雲峽的地理演變。">層雲峽的地理演變</option>
-                    </select>
-                    <button class="button" onclick="callAIBot('day4-ai-section')">發問！</button>
-                    <div id="day4-ai-section-response" class="llm-response hidden"></div>
                 </div>
             </div>
-        </div>
-
-        <!-- Day 5 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day5">
-                <div class="road-info">
-                    <span>🛣️ 路況：良好</span>
-                </div>
-                <span>Day 5 (7月23日 | 週三) 高山景緻與森林童話</span>
-                <div class="weather-info">
-                    <span>☀️ 晴朗</span>
-                </div>
-            </div>
-            <div id="day5" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day5-activity1">
-                        <span>🚠 上午：黑岳口纜車 (Kurodake Ropeway)</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day5-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.visit-hokkaido.jp/lsc/upfile/spot/0001/0350/10350_1_l.jpg" alt="黑岳口纜車俯瞰大雪山國家公園">
-                        </div>
-                        <p class="activity-line"><span class="activity-time">🏞️ 早餐後：</span><span class="activity-details">體驗<span class="highlight">黑岳口纜車</span>的壯麗景色。這條位於層雲峽的纜車提供令人驚嘆的7分鐘旅程，將您上升至海拔1300公尺，可飽覽大雪山國家公園的全景，視野極其開闊（Map Code: 623 204 602*33）。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day5_Kurodake_Ropeway_Ticket.pdf (Google Drive)</a>
-                        <p class="text-guide">💡 導遊小知識：黑岳纜車是日本最北端的纜車，在7月，纜車通常從6:00營運至18:00，每20分鐘一班。搭乘纜車本身對孩子來說是一次刺激的體驗，他們會興奮地俯瞰腳下的森林和峽谷。而大人則會欣賞到雄偉的自然風光，感受大雪山的宏偉與壯麗，夏天即使沒有雪，綠意盎然的山脈也別具一番風情。</p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day5-activity2">
-                        <span>🌸 上午晚些時候/午餐：大雪富良野景觀道與森林精靈露臺 (Ningle Terrace)</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day5-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.tabirai.net/tabirai-uploader/img/0005017/s1_0005017.jpg" alt="大雪富良野景觀道的花田與遠山">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">下山後，離開層雲峽，沿著<span class="highlight">大雪富良野景觀道</span>（國道237號）駕車前往富良野。從層雲峽到富良野的車程約為2至2.5小時。</span></p>
-                        <p class="text-guide">💡 導遊小知識：這條路線不僅僅是從A點到B點的交通要道，它本身就是一個目的地。這條景觀道蜿蜒穿過如畫的起伏丘陵、繽紛的花田（在夏季，您可能會看到沿途的薰衣草和其他各色花卉），並以大雪山和十勝岳山脈為壯麗背景。將單純的駕駛轉化為一場視覺盛宴，讓您真正沉浸在北海道的夏日美景中。沿途有許多小店或景觀點可以隨時停車拍照。</p>
-                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">午餐： 在途中風景優美的地方享用午餐。可以選擇路邊的「道の駅」（公路休息站）享用當地特色美食或購買簡餐。</span></p>
-                        <p class="text-guide">💡 導遊小知識：在大雪富良野景觀道沿途，您可以選擇在**道の駅びえい「丘のくら」**（美瑛車站附近，Map Code: 349 763 365*22），這裡可以買到美瑛當地農產品和特色加工品，並有簡餐區。或者，如果想找有景觀的餐廳，可以考慮在富良野或美瑛尋找一些位於高處的咖啡廳或小餐館，例如**Cafe Goryo**（五稜郭咖啡，Map Code: 349 685 021*22），雖然它在美瑛市區，但能俯瞰田園風光，提供簡餐和甜點；又或是**Farm Restaurant Azemichi**（Map Code: 349 320 000*00），它以使用當地食材的家庭料理聞名，環境也相當舒適。邊吃飯邊看看剛剛走過的路，或是即將要走的路，確實是旅途中的一大享受！</p>
-                        <div class="image-container">
-                            <img src="https://www.bring-you.info/imgs/2024/01/ninguru-terrace-8.jpg" alt="森林精靈露臺夜間的燈光與木屋">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🌲</span><span class="activity-details">傍晚：抵達富良野並入住已確認的住宿——<span class="highlight">富良野王子飯店</span>（Map Code: 349 701 185*07）。辦理入住後，可以稍作休息，為晚上的探險做準備。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day5_Furano_Prince_Hotel.pdf (Google Drive)</a>
-                        <p class="activity-line"><span class="list-item-icon">🌃</span><span class="activity-details">晚上：探索迷人的<span class="highlight">森林精靈露臺</span>（Map Code: 349 701 185*07）。這個由手工藝品店組成的小村落，坐落在富良野王子飯店旁的森林之中，營造出童話般的魔法氛圍。</span></p>
-                        <p class="text-guide">💡 導遊小知識：森林精靈露臺的名字源於日本作家倉本聰筆下的小精靈「Ningle」，他們是森林的智慧守護者。在7月至8月期間，它開放時間為10:00至20:45，並免費入場。這裡的每間小木屋都販售著獨特的手工藝品，如玻璃製品、皮革製品和木製品，充滿了藝術氣息。傍晚時分，當小徑上的燈光亮起，整個露臺更是美輪美奐，彷彿置身於童話世界中，非常適合悠閒的傍晚漫步，選購獨特的紀念品，對大人和小孩都充滿吸引力。</p>
-                    </div>
-                </div>
-                <div class="ai-prompt-section" id="day5-ai-section">
-                    <label for="day5-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <select id="day5-ai-select">
-                        <option value="">請選擇想知道的內容...</option>
-                        <option value="請用幽默的口吻，簡要解說北海道大雪富良野景觀道（國道237號）的地理特色、形成故事，以及沿途的標誌性景觀背後的人文或自然故事。">大雪富良野景觀道的私房景點</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道富良野森林精靈露臺的「Ningle」（小精靈）故事起源，以及這個地方與自然、藝術的連結。">森林精靈露臺的夢幻傳說</option>
-                        <option value="請用幽默的口吻，推薦富良野地區適合家庭用餐的特色餐廳，並介紹當地必嚐的起司或葡萄酒相關美食。">富良野美食：不止薰衣草！</option>
-                    </select>
-                    <button class="button" onclick="callAIBot('day5-ai-section')">發問！</button>
-                    <div id="day5-ai-section-response" class="llm-response hidden"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Day 6 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day6">
-                <div class="road-info">
-                    <span>🛣️ 路況：順暢</span>
-                </div>
-                <span>Day 6 (7月24日 | 週四) 花田、雲霄飛車之路與札幌還車</span>
-                <div class="weather-info">
-                    <span>⛅ 多雲時晴</span>
-                </div>
-            </div>
-            <div id="day6" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day6-activity1">
-                        <span>💜 上午：富良野夏日花季 - 富田農場 (Farm Tomita)</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day6-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.funtime.com.tw/blog/wp-content/uploads/2018/07/881406248_d38142edec_b.jpg" alt="富田農場盛開的薰衣草田">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🌸</span><span class="activity-details">早餐後，沉浸在充滿活力的<span class="highlight">富良野夏日花季</span>中。參觀日本最著名的薰衣草農場之一——<span class="highlight">富田農場 (Farm Tomita)</span>（Map Code: 349 275 628*66）。</span></p>
-                        <p class="text-guide">💡 導遊小知識：7月中旬至下旬是薰衣草盛開的高峰期，將整個山丘染成壯觀的紫色地毯，空氣中彌漫著淡淡的薰衣草香。富田農場的開放時間為8:30至17:00，並且免費入場。這裡不僅有廣闊的薰衣草田，還有多種花卉組成的彩色花田，如彩虹般絢麗，是拍照留念的絕佳地點。務必品嚐著名的薰衣草冰淇淋，口感清新，風味獨特，是夏季消暑的好選擇！</p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="day6-activity2">
-                        <span>🌈 上午晚些時候/午餐：美瑛夏日花季與雲霄飛車之路</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day6-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.bring-you.info/imgs/2024/02/panorama-road-ehana-6.jpg" alt="美瑛雲霄飛車之路的起伏景色">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🌷</span><span class="activity-details">繼續前往<span class="highlight">美瑛夏日花季</span>，並駕車行駛在獨特的<span class="highlight">雲霄飛車之路</span>上（Map Code: 349 275 628*66）。美瑛以其「拼布丘陵」和多樣化的花田而聞名。</span></p>
-                        <p class="text-guide">💡 導遊小知識：位於上富良野的雲霄飛車之路，提供一段約15分鐘的刺激駕駛體驗，其劇烈的起伏彷彿置身於雲霄飛車般，同時能欣賞周圍田野和十勝岳山脈的全景，從車內欣賞趣味十足，是北海道特有的自駕樂趣。</p>
-                        <div class="image-container">
-                            <img src="https://inin.tw/wp-content/uploads/20230717140936_19.jpg" alt="四季彩之丘的彩色花田與農用拖拉機">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🚜</span><span class="font-bold">選擇性：</span><span class="activity-details">考慮參觀美瑛的<span class="highlight">四季彩之丘 (Shikisai-no-oka)</span>（Map Code: 349 701 185*07），該處在7月至9月期間開放時間為8:40至17:30。它擁有種類繁多的花卉，呈現出壯麗的彩色花海。四季彩之丘提供拖拉機巴士遊覽，對4歲的幼童來說尤其有趣。請注意，15歲以上需支付500日圓入場費，15歲以下為300日圓。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">午餐：在富良野/美瑛地區享用午餐。這裡有許多以新鮮蔬菜和當地食材為特色的餐廳可供選擇。</span></p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day6-activity3">
-                        <span>🏙️ 下午：自駕前往札幌與還車 / 傍晚：入住札幌飯店</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day6-activity3" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://d27h7u7rtwbie8.cloudfront.net/2018/07/0721sapporomaturifb.jpg" alt="札幌市區的現代建築與街道">
-                        </div>
-                        <h4 class="font-semibold text-red-600 mb-2">⚠️ 重要提示：札幌還車時間</h4>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">從富良野/美瑛開始駕車前往札幌。預計車程約為2小時至2小時25分鐘。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">⏰</span><span class="activity-details">您的租車公司 <span class="highlight">Times Car Rental 札幌市鐘樓前店最晚營業至晚上6點</span>（Map Code: 9 521 161*00）。為確保能順利還車，請務必在**下午3:30至4:00之間**從富良野/美瑛地區出發，預留充足的交通時間。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day6_Sapporo_Car_Return_Times.pdf (Google Drive)</a>
-                        <p class="activity-line"><span class="list-item-icon">🔑</span><span class="activity-details">抵達札幌後，請直接前往<span class="highlight">Times Car Rental 札幌市鐘樓前店</span>歸還租賃車輛。這標誌著從廣闊自駕探索到城市活動模式的轉變。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🏨</span><span class="font-bold">傍晚：</span><span class="activity-details">歸還車輛後，前往已確認的住宿——<span class="highlight">札幌中島公園普樂美雅酒店</span>（Map Code: 9 520 830*33）辦理入住。酒店位於市中心，交通便利。</span></p>
-                        <a href="https://drive.google.com/drive/folders/1wqVd9WiXPFNjWer9_qUbaGdGRW6Q7Tdn?usp=sharing" target="_blank" class="ticket-link">🔗 電子票券/憑證：Day6_Sapporo_Premier_Hotel.pdf (Google Drive)</a>
-                        <p class="text-guide">📝 行程規劃說明：此規劃將行程策略性地分為自駕探索（廣闊的道東與道中地區）和城市活動（札幌與小樽）兩部分。在7月25日至27日節慶高峰期間，札幌市區的交通和停車可能充滿挑戰且壓力較大。透過歸還車輛，家庭可以享受札幌便利的大眾運輸和步行友善的環境，避免市區駕駛的壓力與高昂的停車費用，從而提升城市體驗的「悠哉」感受。</p>
-                    </div>
-                </div>
-                <div class="ai-prompt-section" id="day6-ai-section">
-                    <label for="day6-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <select id="day6-ai-select">
-                        <option value="">請選擇想知道的內容...</option>
-                        <option value="請用幽默的口吻，提供一些在北海道富良野花田（例如富田農場）和美瑛雲霄飛車之路拍攝美麗照片的實用技巧和構圖建議。請提供至少3個技巧。">花田美照秘訣</option>
-                        <option value="請用幽默的口吻，簡要介紹美瑛的「拼布之路」和「超廣角之路」的特色，以及拍照的絕佳時機。">美瑛拼布之路的魅力</option>
-                        <option value="請用幽默的口吻，提供一些從富良野/美瑛前往札幌後，如何高效利用大眾交通工具並體驗市區樂趣的建議。">札幌城市漫遊小撇步</option>
-                    </select>
-                    <button class="button" onclick="callAIBot('day6-ai-section')">發問！</button>
-                    <div id="day6-ai-section-response" class="llm-response hidden"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Day 7 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day7">
-                <div class="road-info">
-                    <span>🛣️ 路況：順暢</span>
-                </div>
-                <span>Day 7 (7月25日 | 週五) 札幌節慶盛典</span>
-                <div class="weather-info">
-                    <span>☀️ 晴朗</span>
-                </div>
-            </div>
-            <div id="day7" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day7-activity1">
-                        <span>🍻 上午/下午：札幌夏日祭與大通啤酒花園</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day7-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://home.sapporo.kokosil.net/wp-content/uploads/2019/07/image34632x13_main.jpg" alt="札幌大通公園的啤酒花園活動">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🎉</span><span class="activity-details">早餐後，沉浸在充滿活力的<span class="highlight">札幌夏日祭</span>氛圍中。該節慶從7月18日持續至8月16日。前往大通公園，體驗**札幌大通啤酒花園**，其開放時間為7月18日至8月13日。</span></p>
-                        <p class="text-guide">💡 導遊小知識：札幌大通啤酒花園是日本最大的戶外啤酒花園，綿延1公里，設置約13,000個座位。您可以在此品嚐各種當地和國際啤酒，並享用美味的北海道美食，如烤玉米、炸雞等。若想獲得更輕鬆的體驗，尤其是有孩童同行，建議在平日白天前往，此時座位較寬裕。</p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day7-activity2">
-                        <span>🎆 晚上：札幌煙火季「豊平川(道新・UHB)花火大会」</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day7-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://rid-sapporo.com/cms/cms-content/uploads/2023/07/%E8%8A%B1%E7%81%AB%E2%91%A2.jpg" alt="豐平川花火大會的璀璨煙火">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">✨</span><span class="activity-details">準備迎接<span class="highlight">札幌煙火季「豊平川(道新・UHB)花火大会」</span>的壯觀夜晚！這場盛大活動已確認將於7月25日（週五）舉行，完美契合您的行程安排。煙火表演預計於19:40至20:20舉行，地點在豐平川（南大橋至幌平橋之間）。建議提早抵達以確保在河岸邊找到良好的觀賞位置。</span></p>
-                        <p class="text-guide">💡 導遊小知識：豐平川花火大會是札幌夏季的代表性活動之一，每年吸引大量市民和遊客觀賞。在河畔欣賞璀璨的煙火在夜空中綻放，將是您北海道之旅的難忘高潮。</p>
-                    </div>
-                </div>
-                <div class="ai-prompt-section" id="day7-ai-section">
-                    <label for="day7-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <select id="day7-ai-select">
-                        <option value="">請選擇想知道的內容...</option>
-                        <option value="請用幽默的口吻，提供一些在北海道札幌大通啤酒花園品酒的實用建議，例如如何選擇啤酒、搭配食物、享受氛圍等，讓品酒體驗更過癮。">啤酒花園品酒攻略</option>
-                        <option value="請用幽默的口吻，簡要介紹札幌夏日祭的由來和必看亮點。">札幌夏日祭狂歡</option>
-                        <option value="請用幽默的口吻，介紹札幌豐平川花火大會的觀賞最佳位置和周邊小吃建議。">花火大會觀賞秘笈</option>
-                    </select>
-                    <button class="button" onclick="callAIBot('day7-ai-section')">發問！</button>
-                    <div id="day7-ai-section-response" class="llm-response hidden"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Day 8 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day8">
-                <div class="road-info">
-                    <span>🛣️ 路況：順暢</span>
-                </div>
-                <span>Day 8 (7月26日 | 週六) 海岸魅力與都市樂趣</span>
-                <div class="weather-info">
-                    <span>🌦️ 局部陣雨</span>
-                </div>
-            </div>
-            <div id="day8" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day8-activity1">
-                        <span>🏮 上午/下午：小樽潮祭與運河風情</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day8-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://www.bubu-jp.com/wp-content/uploads/2025/01/316af23fa89c1a69fd735c25e7c9665a.jpeg" alt="小樽運河的瓦斯燈與運河景觀">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-details">早餐後，前往迷人的港口城市小樽進行一日遊，從札幌出發僅需約45分鐘車程。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">🏮</span><span class="activity-details">這天的行程完美配合<span class="highlight">小樽潮祭</span>，該節慶從7月25日持續至7月27日。</span></p>
-                        <p class="text-guide">💡 導遊小知識：在7月26日（週六），您可以觀賞熱鬧的「潮練り込み」（遊行），這項主要遊行活動從13:00持續至20:30，充分展現了節慶的精神，您會看到人們穿著傳統服飾，伴隨著音樂和舞蹈，沿街遊行，熱鬧非凡。這是一個深入了解小樽當地文化和參與當地節慶的絕佳機會。</p>
-                        <p class="activity-line"><span class="list-item-icon">🛶</span><span class="activity-details">探索風景如畫的<span class="highlight">小樽運河</span>和<span class="highlight">堺町通的迷人商店街</span>。小樽運河是小樽的標誌性景點，沿岸的紅磚倉庫訴說著昔日港口城市的繁華。堺町通則匯聚了玻璃工藝品店（如北一硝子館）、音樂盒堂（如小樽音樂盒堂本館）和各種甜點店（如LeTAO），是購物和尋寶的好地方，非常適合一家大小慢慢逛。</span></p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header" data-target="day8-activity2">
-                        <span>🦀 午餐/晚餐：海鮮美食饗宴（含帝王蟹）</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day8-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://auntie.tw/wp-content/uploads/2018/02/20241002sjl91.jpg" alt="小樽三角市場新鮮烹製的帝王蟹">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🍽️</span><span class="activity-details">在小樽享用一頓豐盛的<span class="highlight">海鮮美食饗宴</span>，特別是您期待的<span class="highlight">帝王蟹</span>。</span></p>
-                        <p class="text-guide">💡 導遊小知識：小樽的<span class="highlight">三角市場</span>以其新鮮的海鮮和帝王蟹而受到高度推薦，價格通常比札幌更為優惠。</p>
-                        <p class="activity-line"><span class="list-item-icon">🦀</span><span class="activity-details"><span class="font-bold">推薦餐廳：</span><span class="highlight">滝波食堂</span> 和<span class="highlight">武田鮮魚店</span> 是三角市場內最受歡迎且評價最高的餐廳。您可以親自挑選活體帝王蟹，並選擇水煮或燒烤方式烹調（水煮通常被推薦以保留螃蟹的天然甜味和水分）。這絕對是北海道之旅的一大亮點。建議提早抵達市場，以避開最擁擠的人潮並確保選到最新鮮的海鮮，享受親自挑選活體螃蟹並現場烹調的樂趣。</span></p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day8-activity3">
-                        <span>🛍️ 晚上：返回札幌與都會探索</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day8-activity3" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/500000/500129-sapporo-and-vicinity.jpg" alt="札幌市區的夜晚燈光與建築">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🌃</span><span class="activity-details">返回札幌，繼續<span class="highlight">札幌都會探索與購物</span>。享受市中心的熱鬧氛圍，您可以在札幌車站周邊的大型百貨公司（如大丸百貨、札幌Stellar Place）進行購物，或是前往充滿活力的狸小路商店街，這裡有各式各樣的藥妝店、紀念品店和餐廳，是購買伴手禮的好地方。</span></p>
-                        <p class="text-guide">📝 導遊小知識：札幌的夜景也值得一看，如果時間充裕，可以考慮前往札幌電視塔觀景台，俯瞰大通公園和札幌市區的璀璨夜景。</p>
-                    </div>
-                </div>
-                <div class="ai-prompt-section" id="day8-ai-section">
-                    <label for="day8-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <select id="day8-ai-select">
-                        <option value="">請選擇想知道的內容...</option>
-                        <option value="請用幽默的口吻，簡要介紹北海道小樽潮祭中「潮練り込み」（遊行）這項活動的由來、意義，以及它如何展現小樽的港口文化與居民精神。">小樽潮祭小百科</option>
-                        <option value="除了帝王蟹，請用幽默的口吻，推薦北海道小樽三角市場或附近可以品嚐到的其他新鮮海鮮種類和料理方式，簡要說明其特色。">小樽海鮮驚喜</option>
-                        <option value="請用幽默的口吻，簡要介紹小樽運河的歷史故事和夜間氛圍。">小樽運河的浪漫傳說</option>
-                        <option value="請用幽默的口吻，推薦札幌夜晚的休閒活動或特色酒吧，讓大人們可以放鬆。">札幌夜生活指南</option>
-                    </select>
-                    <button class="button" onclick="callAIBot('day8-ai-section')">發問！</button>
-                    <div id="day8-ai-section-response" class="llm-response hidden"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Day 9 -->
-        <div class="accordion-item rounded-xl">
-            <div class="accordion-header rounded-t-xl" data-target="day9">
-                <div class="road-info">
-                    <span>🛣️ 路況：順暢</span>
-                </div>
-                <span>Day 9 (7月27日 | 週日) 告別北海道</span>
-                <div class="weather-info">
-                    <span>☀️ 晴朗</span>
-                </div>
-            </div>
-            <div id="day9" class="accordion-content">
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-t-lg" data-target="day9-activity1">
-                        <span>🎁 上午：札幌都會與購物（彈性時間）</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day9-activity1" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://marukoblog.tw/wp-content/uploads/flickr/27868270307_d2307c6a06_c.jpg" alt="札幌的商店街與行人">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🛍️</span><span class="activity-details">在札幌享受一個彈性的上午。這是進行最後的<span class="highlight">札幌都會探索或購物</span>的理想時機，或許可以購買紀念品、補齊尚未購得的伴手禮，或重訪您喜愛的札幌景點。考量到下午需要前往機場，建議保持輕鬆的步調。</span></p>
-                        <p class="text-guide">📝 導遊小知識：雖然小樽潮祭的盛大煙火表演定於7月27日傍晚（20:00至20:35），但考量到這會使您的離境日過於匆忙且可能充滿壓力，尤其是有孩童同行並需要前往機場。鑑於「悠哉享受」的目標，建議優先觀賞7月25日的札幌煙火，並在7月26日專注於小樽的日間節慶活動。</p>
-                    </div>
-                </div>
-
-                <div class="sub-accordion-item">
-                    <div class="sub-accordion-header rounded-b-lg" data-target="day9-activity2">
-                        <span>✈️ 下午：前往新千歲機場與啟程</span>
-                        <span>&#9660;</span>
-                    </div>
-                    <div id="day9-activity2" class="sub-accordion-content">
-                        <div class="image-container">
-                            <img src="https://cdn.ftvnews.com.tw/manasystem/FileData/News/03419335-318e-43b0-b002-bf403c66041a.jpg" alt="新千歲機場的航站樓與登機口">
-                        </div>
-                        <p class="activity-line"><span class="list-item-icon">🚗</span><span class="activity-time">約11:00：</span><span class="activity-details">從Premier Hotel Tsubaki Sapporo出發，前往新千歲機場。從札幌到新千歲機場的車程約為50-70分鐘。</span></p>
-                        <p class="activity-line"><span class="list-item-icon">✈️</span><span class="activity-details">啟程： 抵達新千歲機場後，辦理行李托運和離境手續。**您的航班為長榮航空165班次，預計13:00從新千歲機場起飛。**帶著北海道之旅的美好回憶踏上歸途。希望您們在這片美麗的土地上留下了珍貴的家庭時光！</span></p>
-                    </div>
-                </div>
-                <div class="ai-prompt-section" id="day9-ai-section">
-                    <label for="day9-ai-select" class="font-semibold">✨ AI 報馬仔：</label>
-                    <span id="day9-ai-text-option">新千歲機場最後衝刺</span>
-                    <button class="button" onclick="callAIBot('day9-ai-section', '請用幽默的口吻，簡要介紹北海道新千歲機場的購物和餐飲特色，以及適合購買的伴手禮。')">發問！</button>
-                    <div id="day9-ai-section-response" class="llm-response hidden"></div>
-                </div>
-            </div>
-        </div>
+        </section>
     </div>
 
     <script src="./config.js"></script> <!-- 引入 config.js 檔案 -->
@@ -1074,6 +1363,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
             const subAccordionHeaders = document.querySelectorAll('.sub-accordion-header');
+            const miniAccordionHeaders = document.querySelectorAll('.mini-accordion-header'); // NEW: Select mini accordion headers
 
             accordionHeaders.forEach(header => {
                 header.addEventListener('click', () => {
@@ -1112,6 +1402,37 @@
                             const parentAccordion = header.closest('.accordion-content');
                             if (parentAccordion) {
                                 parentAccordion.querySelectorAll('.sub-accordion-content').forEach(otherContent => {
+                                    if (otherContent !== targetContent && otherContent.style.display === 'block') {
+                                        otherContent.style.display = 'none';
+                                        const otherHeaderSpan = otherContent.previousElementSibling.querySelector('span:last-child');
+                                        if (otherHeaderSpan) {
+                                            otherHeaderSpan.innerHTML = '&#9660';
+                                        }
+                                    }
+                                });
+                            }
+                            targetContent.style.display = 'block';
+                            header.querySelector('span:last-child').innerHTML = '&#9650;'; // Up arrow
+                        }
+                    }
+                });
+            });
+
+            // NEW: Mini Accordion functionality (third level)
+            miniAccordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const targetId = header.dataset.target;
+                    const targetContent = document.getElementById(targetId);
+                    if (targetContent) {
+                        // Toggle display
+                        if (targetContent.style.display === 'block') {
+                            targetContent.style.display = 'none';
+                            header.querySelector('span:last-child').innerHTML = '&#9660;'; // Down arrow
+                        } else {
+                            // Close other open mini-accordions within the same parent sub-accordion-content
+                            const parentSubAccordionContent = header.closest('.sub-accordion-content');
+                            if (parentSubAccordionContent) {
+                                parentSubAccordionContent.querySelectorAll('.mini-accordion-content').forEach(otherContent => {
                                     if (otherContent !== targetContent && otherContent.style.display === 'block') {
                                         otherContent.style.display = 'none';
                                         const otherHeaderSpan = otherContent.previousElementSibling.querySelector('span:last-child');
@@ -1184,27 +1505,14 @@
 
             // Call setup function on DOMContentLoaded
             setupAIPromptSections();
+
+            // NEW: Hide N/A time info in header
+            document.querySelectorAll('.header-time-info').forEach(span => {
+                if (span.textContent.includes('N/A')) {
+                    span.style.display = 'none';
+                }
+            });
         });
-
-        // NEW: Function to format AI response from Markdown to HTML
-        function formatAIResponse(text) {
-            // Replace bold Markdown (**text** or *text*) with <strong> HTML tags
-            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            text = text.replace(/\*(.*?)\*/g, '<strong>$1</strong>'); // Also handle single asterisks for bold
-
-            // Replace newlines with <br> for proper line breaks
-            text = text.replace(/\n/g, '<br>');
-
-            // Remove any leftover standalone asterisks if they are not part of bold (less likely after bold replacement, but good for robustness)
-            text = text.replace(/\*/g, ''); 
-            
-            // Further improve readability by adding some spacing around Emojis/Icons if they are stuck to text
-            text = text.replace(/([^\s])(✈️|🚗|🗺️|🌳|🍖|🐄|♨️|🌋|🏨|🌅|💧|🏞️|🛣️|💦|🛥️|🛍️|🎁|📦|🛂|🔑|🎫|📞|👚|👟|☔|☀️|🦟|🔌|⚡|📶|📱|🔋|🩹|🚑|👶|⏱️|🍭|💺|🏃‍♀️|👨‍👩‍👧‍👦|💳|🍦|⛽|🏡|🏢|🏬|⛩️|🐟|🍜|🥟|🦀|🦐|🦑|🍣|🍺|🎉|✨|🍻|🎆|🏮|🛶|🌃|💜|🌈|🌷|🚜|🏙️|🔔|🌸|🌾|🌊|🍂|❄️|🌨️|🌬️|☀️|🌫️|⛅|🌧️|💧)/g, '$1 $2');
-            text = text.replace(/(✈️|🚗|🗺️|🌳|🍖|🐄|♨️|🌋|🏨|🌅|💧|🏞️|🛣️|💦|🛥️|🛍️|🎁|📦|🛂|🔑|🎫|📞|👚|👟|☔|☀️|🦟|🔌|⚡|📶|📱|🔋|🩹|🚑|👶|⏱️|🍭|💺|🏃‍♀️|👨‍👩‍👧‍👦|💳|🍦|⛽|🏡|🏢|🏬|⛩️|🐟|🍜|🥟|🦀|🦐|🦑|🍣|🍺|🎉|✨|🍻|🎆|🏮|🛶|🌃|💜|🌈|🌷|🚜|🏙️|🔔|🌸|🌾|🌊|🍂|❄️|🌨️|🌬️|☀️|🌫️|⛅|🌧️|💧)([^\s])/g, '$1 $2');
-
-
-            return text;
-        }
 
 
         // Function to call AI Bot (Gemini API)
@@ -1219,7 +1527,7 @@
             }
 
             if (!prompt || prompt === "請選擇想知道的內容..." || prompt === "無可用問題") { 
-                responseDiv.innerHTML = '<p>🧐 AI 報馬仔需要您的指示！請從選單中挑選一個問題，或是直接點擊按鈕詢問喔！</p>';
+                responseDiv.innerHTML = '<p>🧐 AI 報馬仔需要您的指示！請從選單中挑選一個問題，或是直接點擊按鈕詢！</p>';
                 responseDiv.style.display = 'block';
                 return;
             }
@@ -1237,7 +1545,7 @@
             try {
                 let chatHistory = [];
                 // Instruct the model to use specific formatting, humor, and details
-                const fullPrompt = `你是一個幽默、熱情且知識淵博的北海道旅遊AI報馬仔。請用中文繁體，以說故事的口吻，詳細回答以下關於北海道旅遊的問題，並在回答中適當使用Emoji或ICON（例如🏞️、🦀、🌸、🚗等）來取代純文字的項目符號，讓內容更生動有趣，並注意換行提升可讀性。請確保資訊的準準確性：\n\n問題：${prompt}`;
+                const fullPrompt = `你是一個幽默、熱情且知識淵博的北海道旅遊AI報馬仔。請用中文繁體，以說故事的口吻，詳細回答以下關於北海道旅遊的問題，並在回答中適當使用Emoji或ICON（例如🏞️、🦀、🌸、🚗等）來取代純文字的項目符號，讓內容更生動有趣，並注意換行提升可讀性。請確保資訊的準確性：\n\n問題：${prompt}`;
 
                 chatHistory.push({ role: "user", parts: [{ text: fullPrompt }] });
                 const payload = { contents: chatHistory };
@@ -1270,8 +1578,8 @@
         async function callAIBotForCloudSea(targetId, prompt) {
             const responseDiv = document.getElementById(`${targetId}-response`);
 
-            // Check if API key is defined and not empty
-            if (typeof GEMINI_API_KEY === 'undefined' || !GEMINI_API_KEY) { 
+            // Check if API key is the placeholder or empty after deployment
+            if (typeof GEMINI_API_KEY === 'undefined' || !GEMINI_API_KEY) { // Updated check
                 responseDiv.innerHTML = '<p>⚡️ AI 天氣報馬仔正在充電中... 請先在 GitHub Secrets 中設定您的 Gemini API Key，並確保部署成功才能召喚它喔！</p>';
                 responseDiv.style.display = 'block';
                 return;
@@ -1299,8 +1607,7 @@
                     result.candidates[0].content && result.candidates[0].content.parts &&
                     result.candidates[0].content.parts.length > 0) {
                     const text = result.candidates[0].content.parts[0].text;
-                    // Format the AI response before displaying
-                    responseDiv.innerHTML = `<p>${formatAIResponse(text)}</p>`;
+                    responseDiv.innerHTML = `<p>${text}</p>`;
                 } else {
                     responseDiv.innerHTML = '<p>哎呀，AI 天氣報馬仔有點卡住了，暫時無法無法生成內容。請稍後再試喔！</p>';
                     console.error('Unexpected Gemini API response structure:', result);
